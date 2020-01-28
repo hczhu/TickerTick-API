@@ -5,7 +5,7 @@ Welcome to the TickerTick API!
 TheTickerTick API provides fresh and relevant stock news stories based on a powerful query language. The API covers all US stocks and China A-shares(A股). The source websites of the news stories include a lot of well-known websites and all company filings.
 
 An example web app using TickerTick API.
-- [https://tickertick.com](https://tickertick.com/?q=FB,AMZN,AAPL,NFLX,GOOG)
+- [https://tickertick.com](https://tickertick.com/?q=FB%2CAMZN%2CAAPL%2CNFLX%2CGOOG&lang=en)
 
 All requests to the TickerTick API are made via GET to `https://api.tickertick.com/`.
 
