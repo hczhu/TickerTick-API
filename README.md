@@ -61,7 +61,7 @@ f_term => f0 | f1 | f2 | f3
 | `f2:any_stock_ticker`| Request most relevant and medium relevant stories about `any_stock_ticker`  |
 | `f3:any_stock_ticker`| Request all stories about `any_stock_ticker`  |
 | `tx:any_string`| request news story matching text `any_string`. <br> (`any_string` can have whitespaces)  |
-| `s:any_website_domain_name`| request news story from websites on domain `any_website_domain_name`  |
+| `s:domain_name`| request news story from websites on domain `domain_name` <br> (`domain_name` shouldn't contain '.' or '/')  |
 
 
 ### Example queries
