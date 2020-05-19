@@ -117,27 +117,32 @@ The returned news stories are in a JSON string. The example from URL https://api
 ### Top news source websites
 | Website                      | #stories in recent 12 weeks |
 |----------------------|---------------|
-| sec.gov               |   148105 |
-| wsj.com               |    16247 |
-| businessinsider.com   |     9971 |
-| globenewswire.com     |     7399 |
-| businesswire.com      |     6882 |
-| twitter.com               |     5884 |
-| apnews.com            |     5366 |
-| barrons.com           |     5217 |
-| cnbc.com              |     4544 |
-| nytimes.com           |     4117 |
-| forbes.com            |     4011 |
-| bloomberg.com         |     3635 |
-| marketwatch.com       |     3198 |
-| theverge.com          |     2968 |
-| wired.com             |     2783 |
-| techcrunch.com            |     2404 |
-| prnewswire.com        |     2272 |
-| nypost.com                |     2002 |
-| fastcompany.com       |     1832 |
-| vox.com               |     1491 |
-| axios.com             |     1422 |
+| sec.gov                           |   201180 |
+| wsj.com                           |    14595 |
+| reddit.com                        |     9598 |
+| globenewswire.com                 |     8329 |
+| theguardian.com                   |     7546 |
+| businessinsider.com               |     7171 |
+| seekingalpha.com                      |     6856 |
+| barrons.com                       |     5754 |
+| businesswire.com                  |     5418 |
+| nytimes.com                       |     4962 |
+| twitter.com                           |     4908 |
+| marketwatch.com                   |     4426 |
+| cnbc.com                          |     4144 |
+| apnews.com                        |     3578 |
+| forbes.com                        |     3343 |
+| wired.com                         |     2754 |
+| prnewswire.com                    |     2660 |
+| bloomberg.com                     |     2456 |
+| theverge.com                      |     2153 |
+| nypost.com                            |     2141 |
+| prnewswire.com                        |     1922 |
+| businessinsider.com                   |     1893 |
+| techcrunch.com                        |     1861 |
+| mashable.com                          |     1698 |
+| fastcompany.com                   |     1626 |
+| arstechnica.com                       |     1371 |
 
 ## Stock ticker search API
 
