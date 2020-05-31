@@ -15,6 +15,8 @@ Below are the available endpoints:
 ## Get stock news feed API
 This API returns a feed of the lastest news stories relevant to the query in reverse chronological order.
 
+**NOTE**: All endponts have a rate limit of 6 requests per minute from the same IP.
+
 ### Endpoint
 `GET` https://api.tickertick.com/feed
 
