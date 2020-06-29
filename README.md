@@ -121,7 +121,6 @@ The returned news stories are in a JSON string. The example from URL https://api
 |----------------------|---------------|
 | sec.gov                           |   201180 |
 | wsj.com                           |    14595 |
-| reddit.com                        |     9598 |
 | globenewswire.com                 |     8329 |
 | theguardian.com                   |     7546 |
 | businessinsider.com               |     7171 |
@@ -129,7 +128,6 @@ The returned news stories are in a JSON string. The example from URL https://api
 | barrons.com                       |     5754 |
 | businesswire.com                  |     5418 |
 | nytimes.com                       |     4962 |
-| twitter.com                           |     4908 |
 | marketwatch.com                   |     4426 |
 | cnbc.com                          |     4144 |
 | apnews.com                        |     3578 |
