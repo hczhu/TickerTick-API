@@ -33,9 +33,10 @@ Stock news feed for Apple Inc. - https://api.tickertick.com/feed?q=f3:aapl&lang=
 | Parameter  | Description                     | Options                            |  Example value    |
 |----------------|-------------------------------|--------------------------------------------------------|------------|
 | q              | The query string       | Any query string in a query language<br>(explained below) | `f3:aapl`  |
-| lang           | The language of the returned news stories | en: English<br>cn: Chinese<br>en,cn: Both  | `en,cn` |
+| lang           | Comma-separated languages of requested feed stories| `en`: English<br>`cn`: Chinese<br>`en,cn`: Both  | `en,cn` |
 | n              | How many latest news stories to fetch|   Any number between 1 and 1000 |      `42`      |
 | last    | A story id for pagination.<br>Fetch news stories older than the story with this id.| A 64 bit integer. Each returned news story has such an id. |  `6844326865886118959`       |
+| excl  | Comma-separated types of stories to exclude from the requested feed  | `filings`: exclude  company filings<br> `ugc`: exclude user generated content | `filings,ugc` |
 
 ### The query language
 The query language is a [Context free language](https://en.wikipedia.org/wiki/Context-free_language) following the grammar below
@@ -76,40 +77,9 @@ f_term => f0 | f1 | f2 | f3
 | `(or f3:fb f3:amzn f3:nflx f3:goog)` | Relevant level 3 news stories about [FANG stocks](https://www.investopedia.com/terms/f/fang-stocks-fb-amzn.asp) | https://api.tickertick.com/feed?q=(or%20f3:fb%20f3:amzn%20f3:nflx%20f3:goog)|
 | `(diff tx:elon musk s:nytimes)` | Stories about Elon Musk not from NY times | https://api.tickertick.com/feed?q=(diff%20tx:elon%20musk%20s:nytimes)|
 
-### The returned news stories
-The returned news stories are in a JSON string. The example from URL https://api.tickertick.com/feed?q=f3:aapl&lang=en&n=2
+### The response
+The response is a json blob consisting of an array of stories. Each story has the following fields
 
-```
-{
-  "stories": [
-    {
-      "id": "-6182621638785416990",
-      "title": "‘The time is now to have a federal privacy bill,’ says Tim Cook",
-      "url": "https://www.theverge.com/2019/11/22/20978140/tim-cook-apple-federal-privacy-bill-facebook-breakup-big-tech",
-      "site": "www.theverge.com",
-      "time": 1574547739000,
-      "favicon_url": "https://cdn.vox-cdn.com/uploads/chorus_asset/file/7395351/android-chrome-192x192.0.png"
-    },
-    {
-      "id": "-3255988935767362050",
-      "title": "Email App Maker Begs Apple CEO to Get Back on the App Store Author: Julian Chokkattu Julian Chokkattu",
-      "url": "https://www.wired.com/story/bluemail-developers-write-open-letter-to-apple-mac-app-store/",
-      "site": "www.wired.com",
-      "time": 1574547739000,
-      "favicon_url": "https://www.wired.com/images/logos/w-icon-512x512.png"
-    },
-    {
-      "id": "4112141090713067885",
-      "title": "NYU professor Scott Galloway: Disney+ and Apple TV+ will be the winners of the streaming wars",
-      "url": "https://www.businessinsider.com/nyu-professor-scott-galloway-disney-plus-apple-tv-streaming-wars-2019-11",
-      "site": "www.businessinsider.com",
-      "time": 1574547739000,
-      "favicon_url": "http://static.businessinsider.de/assets/images/de/favicons/android-chrome-512x512.png"
-    },
-  ]
-}
-
-```
 | Story field | Description |
 |---------------|-----------|
 | `id`  | A unique string id of the story. The `id` can be used for pagination as the value of parameter `last`.|
@@ -118,34 +88,41 @@ The returned news stories are in a JSON string. The example from URL https://api
 | `site` | The source website of the news story. |
 | `time` | The timestamp of the news story. The same semantics as `Date.now()` in Javascript. |
 | `favicon_url` | The url of the favicon of the source website. |
+| `tags` | An array of strings. Each string is the ticker the story is about. |
 
-### Top news source websites
-| Website                      | #stories in recent 12 weeks |
-|----------------------|---------------|
-| sec.gov                           |   201180 |
-| wsj.com                           |    14595 |
-| globenewswire.com                 |     8329 |
-| theguardian.com                   |     7546 |
-| businessinsider.com               |     7171 |
-| seekingalpha.com                      |     6856 |
-| barrons.com                       |     5754 |
-| businesswire.com                  |     5418 |
-| nytimes.com                       |     4962 |
-| marketwatch.com                   |     4426 |
-| cnbc.com                          |     4144 |
-| apnews.com                        |     3578 |
-| forbes.com                        |     3343 |
-| wired.com                         |     2754 |
-| prnewswire.com                    |     2660 |
-| bloomberg.com                     |     2456 |
-| theverge.com                      |     2153 |
-| nypost.com                            |     2141 |
-| prnewswire.com                        |     1922 |
-| businessinsider.com                   |     1893 |
-| techcrunch.com                        |     1861 |
-| mashable.com                          |     1698 |
-| fastcompany.com                   |     1626 |
-| arstechnica.com                       |     1371 |
+An example response from reqeust URL https://api.tickertick.com/feed?q=(or%20f1:fb%20f1:aapl)&lang=en&n=2
+
+```
+{
+  "stories": [
+    {
+      "id": "-8234495239863619632",
+      "title": "Apple Inc.: Form FWP - 2020-08-13",
+      "url": "https://www.sec.gov/Archives/edgar/data/320193/0001193125-20-219289-index.html",
+      "site": "www.sec.gov",
+      "time": 1597302000000,
+      "favicon_url": "https://www.sec.gov/themes/custom/secgov/favicon.ico",
+      "tags": [
+        "aapl"
+      ]
+    },
+    {
+      "id": "3888876773322702496",
+      "title": "Facebook Inc: Form 4 - 2020-08-13",
+      "url": "https://www.sec.gov/Archives/edgar/data/1326801/0000950103-20-015792-index.html",
+      "site": "www.sec.gov",
+      "time": 1597302000000,
+      "favicon_url": "https://www.sec.gov/themes/custom/secgov/favicon.ico",
+      "tags": [
+        "fb"
+      ]
+    }
+  ],
+  "last_id": "3888876773322702496"
+}
+
+```
+
 
 ## Stock ticker search API
 
