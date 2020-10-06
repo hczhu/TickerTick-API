@@ -4,14 +4,11 @@ Welcome to the TickerTick API!
 
 The TickerTick API provides fresh and relevant stock news stories based on a powerful query language. The API covers all companies listed in the US market. The source websites of the news stories include a lot of well-known websites and all company filings.
 
-An example web app using TickerTick API.
+Take a look at an example web app that uses TickerTick API.
 - [https://tickertick.com](https://tickertick.com/?q=FB%2CAMZN%2CAAPL%2CNFLX%2CGOOG&lang=en)
 
-All requests to the TickerTick API are made via GET to `https://api.tickertick.com/`.
 
-Below are the available endpoints:
-
-## Terms of Use
+### Terms of Use
 - The API is free of commercial/non-commercialuse use.
 - All endpoints have a rate limit of __6 requests per minute__ from the same IP. This is enforced by the service.
 - You are welcome to file an issue if you see any problem, like irrelevant stories.
