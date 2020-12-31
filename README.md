@@ -75,7 +75,7 @@ f_term => f0 | f1 | f2 | f3
 | `(diff tx:elon musk s:nytimes)` | Stories about Elon Musk not from NY times | https://api.tickertick.com/feed?q=(diff%20tx:elon%20musk%20s:nytimes)|
 
 ### The response
-The response is a json blob consisting of an array of stories. Each story has the following fields
+The response is a json blob consisting of an array of stories in reverse chronological order. Each story has the following fields
 
 | Story field | Description |
 |---------------|-----------|
@@ -83,7 +83,7 @@ The response is a json blob consisting of an array of stories. Each story has th
 | `title` | The title of the news story in HTML format. |
 | `url` | The url of the news story. |
 | `site` | The source website of the news story. |
-| `time` | The timestamp of the news story. The same semantics as `Date.now()` in Javascript. |
+| `time` | The timestamp of the news story. It's the number of milliseconds since the "Unix epoch", 1970-01-01T00:00:00Z (UTC). The same semantics as `Date.now()` in Javascript. |
 | `favicon_url` | The url of the favicon of the source website. |
 | `tags` | An array of strings. Each string is the ticker the story is about. |
 
