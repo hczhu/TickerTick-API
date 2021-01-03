@@ -33,7 +33,9 @@ Stock news feed for Apple Inc. - https://api.tickertick.com/feed?q=f3:aapl&lang=
 | lang           | Comma-separated languages of requested feed stories| `en`: English<br>`cn`: Chinese<br>`en,cn`: Both  | `en,cn` |
 | n              | How many latest news stories to fetch|   Any number between 1 and 1000 |      `42`      |
 | last    | A story id for pagination.<br>Fetch news stories older than the story with this id.| A 64 bit integer. Each returned news story has such an id. |  `6844326865886118959`       |
+| hours_ago | Only return stories from this number of hours ago.| A 32 bit positive integer. | `2400` (100 days ago)|
 | excl  | Comma-separated types of stories to exclude from the requested feed  | `filings`: exclude  company filings<br> `ugc`: exclude user generated content | `filings,ugc` |
+
 
 ### The query language
 The query language is a [Context free language](https://en.wikipedia.org/wiki/Context-free_language) following the grammar below
@@ -68,11 +70,16 @@ f_term => f0 | f1 | f2 | f3
 
 
 ### Example queries
-| Example query | Semantics | URL |
-|---------------|-----------|-------|
-| `f0:aapl`  | Relevant level 0 news stories about Apple Inc. (ticker: aapl)| [https://api.tickertick.com/feed?q=f0:aapl](https://api.tickertick.com/feed?q=f0:aapl)      |
-| `(or f3:fb f3:amzn f3:nflx f3:goog)` | Relevant level 3 news stories about [FANG stocks](https://www.investopedia.com/terms/f/fang-stocks-fb-amzn.asp) | https://api.tickertick.com/feed?q=(or%20f3:fb%20f3:amzn%20f3:nflx%20f3:goog)|
-| `(diff tx:elon musk s:nytimes)` | Stories about Elon Musk not from NY times | https://api.tickertick.com/feed?q=(diff%20tx:elon%20musk%20s:nytimes)|
+| Example query | Semantics | API call URL | Rendered stories |
+|---------------|-----------|-------|---------------------------------|
+| `f2:aapl`  | Relevant level 2 news stories about Apple Inc. (ticker: aapl)| [https://api.tickertick.com/feed?q=f2:aapl](https://api.tickertick.com/feed?q=f2:aapl)      | [`f2:aapl`](https://s.tickertick.com/search.html?q=f2:aapl) |
+| `(or f3:fb f3:amzn f3:nflx f3:goog)` | Relevant level 3 news stories about [FANG stocks](https://www.investopedia.com/terms/f/fang-stocks-fb-amzn.asp) | https://api.tickertick.com/feed?q=(or%20f3:fb%20f3:amzn%20f3:nflx%20f3:goog) | [`(or f3:fb f3:amzn f3:nflx f3:goog)`](https://s.tickertick.com/search.html?q=(or%20f3:fb%20f3:amzn%20f3:nflx%20f3:goog)) |
+| `(and (or f3:fb f3:goog) s:reddit)` | News stories about Facebook (`fb`) and Google (`goog`) from `reddit.com` | https://api.tickertick.com/feed?q=(and%20(or%20f3:fb%20f3:goog)%20s:reddit)|[`(and (or f3:fb f3:goog) s:reddit)`](https://s.tickertick.com/search.html?q=(and%20(or%20f3:fb%20f3:goog)%20s:reddit)) |
+| `(diff (or f3:fb f3:goog) s:reddit)` | News stories about Facebook (`fb`) and Google (`goog`) not from Reddit.com | https://api.tickertick.com/feed?q=(diff%20(or%20f3:fb%20f3:goog)%20s:reddit)|[`(diff (or f3:fb f3:goog) s:reddit)`](https://s.tickertick.com/search.html?q=(diff%20(or%20f3:fb%20f3:goog)%20s:reddit)) |
+| `(diff tx:elon musk s:nytimes)` | Stories with `Elon Musk` in titles not from NY times | https://api.tickertick.com/feed?q=(diff%20tx:elon%20musk%20s:nytimes)| [`(diff tx:elon musk s:nytimes)`](https://s.tickertick.com/search.html?q=(diff%20tx:elon%20musk%20s:nytimes)) |
+
+### Example API calls
+
 
 ### The response
 The response is a json blob consisting of an array of stories in reverse chronological order. Each story has the following fields
