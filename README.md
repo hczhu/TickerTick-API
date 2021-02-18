@@ -44,46 +44,42 @@ query => term | (and query_list) | (or query_list) | (diff query query)
 
 query_list => query query_list | term
 
-term => f_term:any_stock_ticker | tx:any_string | s:any_website_domain_name
+term => tt:any_stock_ticker | tx:any_string | s:any_website_domain_name
 
-f_term => f0 | f1 | f2 | f3
 
 ```
 ### Operator semantics
 
 | operator | semantics|
 |---------------|-----------|
-| `(and query_list)` | request news stories matching all queries in `query_list`|
-| `(or query_list)` | request news stories matching any query in `query_list`|
-| `(diff query1 query2)` | request news stories matching `query1` but not `query2`|
+| `(and query_list)` | Request news stories matching all queries in `query_list`|
+| `(or query_list)` | Request news stories matching any query in `query_list`|
+| `(diff query1 query2)` | Request news stories matching `query1` but not `query2`|
 
 
 ### Term semantics
 | term | semantics |
 |---------------|-----------|
-| `f0:stock_ticker`| Request company filings only about `stock_ticker`   |
-| `f1:stock_ticker`| Request most relevant stories about `stock_ticker`  |
-| `f2:stock_ticker`| Request most relevant and medium relevant stories about `stock_ticker`  |
-| `f3:stock_ticker`| Request all stories about `stock_ticker`  |
-| `tx:any_string`| request news story matching text `any_string`. <br> (`any_string` can have whitespaces)  |
-| `s:domain_name`| request news story from websites on domain `domain_name` <br> (`domain_name` shouldn't contain '.' or '/')  |
+| `tt:stock_ticker`| Request news stories about `stock_ticker`  |
+| `tx:any_string`| Request news stories with titles matching text `any_string`. <br> (`any_string` can have whitespaces)  |
+| `s:domain_name`| Request news stories from websites on domain `domain_name` <br> (`domain_name` shouldn't contain '.' or '/')  |
 
 
 ### Example queries
 | Example query | Semantics | API call URL | Rendered stories |
 |---------------|-----------|-------|---------------------------------|
-| `f2:aapl`  | Relevant level 2 news stories about Apple Inc. (ticker: aapl)| [https://api.tickertick.com/feed?q=f2:aapl](https://api.tickertick.com/feed?q=f2:aapl)      | [`f2:aapl`](https://s.tickertick.com/search.html?q=f2:aapl) |
-| `(or f3:fb f3:amzn f3:nflx f3:goog)` | Relevant level 3 news stories about [FANG stocks](https://www.investopedia.com/terms/f/fang-stocks-fb-amzn.asp) | https://api.tickertick.com/feed?q=(or%20f3:fb%20f3:amzn%20f3:nflx%20f3:goog) | [`(or f3:fb f3:amzn f3:nflx f3:goog)`](https://s.tickertick.com/search.html?q=(or%20f3:fb%20f3:amzn%20f3:nflx%20f3:goog)) |
-| `(and (or f3:fb f3:goog) s:reddit)` | News stories about Facebook (`fb`) and Google (`goog`) from `reddit.com` | https://api.tickertick.com/feed?q=(and%20(or%20f3:fb%20f3:goog)%20s:reddit)|[`(and (or f3:fb f3:goog) s:reddit)`](https://s.tickertick.com/search.html?q=(and%20(or%20f3:fb%20f3:goog)%20s:reddit)) |
-| `(diff (or f3:fb f3:goog) s:reddit)` | News stories about Facebook (`fb`) and Google (`goog`) not from Reddit.com | https://api.tickertick.com/feed?q=(diff%20(or%20f3:fb%20f3:goog)%20s:reddit)|[`(diff (or f3:fb f3:goog) s:reddit)`](https://s.tickertick.com/search.html?q=(diff%20(or%20f3:fb%20f3:goog)%20s:reddit)) |
-| `(diff tx:elon musk s:nytimes)` | Stories with `Elon Musk` in titles not from NY times | https://api.tickertick.com/feed?q=(diff%20tx:elon%20musk%20s:nytimes)| [`(diff tx:elon musk s:nytimes)`](https://s.tickertick.com/search.html?q=(diff%20tx:elon%20musk%20s:nytimes)) |
+| `(and tt:aapl s:sec)`  | SEC filings from Apple Inc. (ticker: aapl)| [https://api.tickertick.com/feed?q=(and tt:aapl s:sec)](https://api.tickertick.com/feed?q=(and%20tt:aapl%20s:sec))      | [`(and tt:aapl s:sec)`](https://s.tickertick.com/search.html?q=(and%20tt:aapl%20s:sec)) |
+| `(or tt:fb tt:amzn tt:nflx tt:goog)` | News stories about [FANG stocks](https://www.investopedia.com/terms/f/fang-stocks-fb-amzn.asp) | [https://api.tickertick.com/feed?q=(or%20tt:fb tt:amzn tt:nflx tt:goog)](https://api.tickertick.com/feed?q=(or%20tt:fb%20tt:amzn%20tt:nflx%20tt:goog)) | [`(or tt:fb tt:amzn tt:nflx tt:goog)`](https://s.tickertick.com/search.html?q=(or%20tt:fb%20tt:amzn%20tt:nflx%20tt:goog)) |
+| `(and (or tt:fb tt:goog) s:reddit)` | News stories about Facebook (`fb`) and Google (`goog`) from `reddit.com` | [https://api.tickertick.com/feed?q=(and (or tt:fb tt:goog) s:reddit)](https://api.tickertick.com/feed?q=(and%20(or%20tt:fb%20tt:goog)%20s:reddit))|[`(and (or tt:fb tt:goog) s:reddit)`](https://s.tickertick.com/search.html?q=(and%20(or%20tt:fb%20tt:goog)%20s:reddit)) |
+| `(diff (or tt:fb tt:goog) s:reddit)` | News stories about Facebook (`fb`) and Google (`goog`) not from Reddit.com | [https://api.tickertick.com/feed?q=(diff (or tt:fb tt:goog) s:reddit)](https://api.tickertick.com/feed?q=(diff%20(or%20tt:fb%20tt:goog)%20s:reddit))|[`(diff (or tt:fb tt:goog) s:reddit)`](https://s.tickertick.com/search.html?q=(diff%20(or%20tt:fb%20tt:goog)%20s:reddit)) |
+| `(diff tx:elon musk s:nytimes)` | Stories with `Elon Musk` in titles not from NY times | [https://api.tickertick.com/feed?q=(diff tx:elon musk s:nytimes)](https://api.tickertick.com/feed?q=(diff%20tx:elon%20musk%20s:nytimes))| [`(diff tx:elon musk s:nytimes)`](https://s.tickertick.com/search.html?q=(diff%20tx:elon%20musk%20s:nytimes)) |
 
 ### Example API calls
 
 | URL parameters | Semanrics | API call URL | Rendered stories |
 |---------------|-----------|-------|---------------------------------|
-| `q=f3:fb`<br>`hours_ago=14400`<br>`lang=en`<br>`n=5` | Get 5 stories in English about Facebook (`fb`) | https://api.tickertick.com/feed?q=f3:fb&hours_ago=14400&lang=en&n=5  | [`q=f3:fb&hours_ago=14400&lang=en&n=5`](https://s.tickertick.com/search.html?q=f3:fb&hours_ago=14400&lang=en&n=5) |
-| `q=f3:fb`<br>`last=-8385103983945365342`<br>`n=5` | Get 5 stories about Facebook (`fb`) older than story with id `-8385103983945365342`| https://api.tickertick.com/feed?q=f3:fb&last=-8385103983945365342&n=5  | [`q=f3:fb&last=-8385103983945365342&n=5`](https://s.tickertick.com/search.html?q=f3:fb&last=-8385103983945365342&n=5) |
+| `q=tt:fb`<br>`hours_ago=14400`<br>`lang=en`<br>`n=5` | Get 5 news stories in English about Facebook (`fb`) | https://api.tickertick.com/feed?q=tt:fb&hours_ago=14400&lang=en&n=5  | [`q=tt:fb&hours_ago=14400&lang=en&n=5`](https://s.tickertick.com/search.html?q=tt:fb&hours_ago=14400&lang=en&n=5) |
+| `q=tt:fb`<br>`last=-8385103983945365342`<br>`n=5` | Get 5 stories about Facebook (`fb`) older than story with id `-8385103983945365342`| https://api.tickertick.com/feed?q=tt:fb&last=-8385103983945365342&n=5  | [`q=tt:fb&last=-8385103983945365342&n=5`](https://s.tickertick.com/search.html?q=tt:fb&last=-8385103983945365342&n=5) |
 
 
 ### The response
