@@ -21,7 +21,7 @@ This API returns a feed of the lastest news stories relevant to the query in rev
 `GET` https://api.tickertick.com/feed
 
 ### Example request URL
-Stock news feed for Apple Inc. - https://api.tickertick.com/feed?q=f3:aapl&lang=en
+News stories about Apple Inc. - https://api.tickertick.com/feed?q=tt:aapl&lang=en
 
 [Rendered stock news feed for Apple Inc.](https://tickertick.netlify.com/?q=AAPL)
 
@@ -29,7 +29,7 @@ Stock news feed for Apple Inc. - https://api.tickertick.com/feed?q=f3:aapl&lang=
 
 | Parameter  | Description                     | Options                            |  Example value    |
 |----------------|-------------------------------|--------------------------------------------------------|------------|
-| q              | The query string       | Any query string in a query language<br>(explained below) | `f3:aapl`  |
+| q              | The query string       | Any query string in a query language<br>(explained below) | `tt:aapl`  |
 | lang           | Comma-separated languages of requested feed stories| `en`: English<br>`cn`: Chinese<br>`en,cn`: Both  | `en,cn` |
 | n              | How many latest news stories to fetch|   Any number between 1 and 1000 |      `42`      |
 | last    | A story id for pagination.<br>Fetch news stories older than the story with this id.| A 64 bit integer. Each returned news story has such an id. |  `6844326865886118959`       |
