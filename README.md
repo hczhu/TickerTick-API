@@ -95,7 +95,7 @@ The response is a json blob consisting of an array of stories in reverse chronol
 | `favicon_url` | The url of the favicon of the source website. |
 | `tags` | An array of strings. Each string is the ticker the story is about. |
 
-An example response from reqeust URL https://api.tickertick.com/feed?q=(or%20f1:fb%20f1:aapl)&lang=en&n=2
+An example response from reqeust URL https://api.tickertick.com/feed?q=(or%20tt:fb%20tt:aapl)&lang=en&n=2
 
 ```
 {
