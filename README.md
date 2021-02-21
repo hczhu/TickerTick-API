@@ -78,8 +78,8 @@ term => tt:any_stock_ticker | tx:any_string | s:any_website_domain_name
 
 | URL parameters | Semanrics | API call URL | Rendered stories |
 |---------------|-----------|-------|---------------------------------|
-| `q=tt:fb`<br>`hours_ago=14400`<br>`lang=en`<br>`n=5` | Get 5 news stories in English about Facebook (`fb`) | https://api.tickertick.com/feed?q=tt:fb&hours_ago=14400&lang=en&n=5  | [`q=tt:fb&hours_ago=14400&lang=en&n=5`](https://s.tickertick.com/search.html?q=tt:fb&hours_ago=14400&lang=en&n=5) |
-| `q=tt:fb`<br>`last=-8385103983945365342`<br>`n=5` | Get 5 stories about Facebook (`fb`) older than story with id `-8385103983945365342`| https://api.tickertick.com/feed?q=tt:fb&last=-8385103983945365342&n=5  | [`q=tt:fb&last=-8385103983945365342&n=5`](https://s.tickertick.com/search.html?q=tt:fb&last=-8385103983945365342&n=5) |
+| `q=tt:fb`<br>`hours_ago=14400`<br>`lang=en`<br>`n=5` | Get 5 news stories in English about Facebook(`fb`) from 600 days ago | https://api.tickertick.com/feed?q=tt:fb&hours_ago=14400&lang=en&n=5  | [`q=tt:fb&hours_ago=14400&lang=en&n=5`](https://s.tickertick.com/search.html?q=tt:fb&hours_ago=14400&lang=en&n=5) |
+| `q=tt:fb`<br>`last=-8385103983945365342`<br>`n=5` | Get 5 stories about Facebook(`fb`) older than story with id `-8385103983945365342`| https://api.tickertick.com/feed?q=tt:fb&last=-8385103983945365342&n=5  | [`q=tt:fb&last=-8385103983945365342&n=5`](https://s.tickertick.com/search.html?q=tt:fb&last=-8385103983945365342&n=5) |
 
 
 ### The response
