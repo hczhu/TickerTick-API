@@ -10,7 +10,7 @@ Take a look at an example web app that uses TickerTick API.
 
 ### Terms of Use
 - The API is free of commercial/non-commercialuse use.
-- All endpoints have a rate limit of __6 requests per minute__ from the same IP. This is enforced by the service.
+- All endpoints have a rate limit of __6 requests per minute__ from the same IP address. This is enforced by the service.
 - You are welcome to file an issue if you see any problem, like irrelevant stories.
 
 ## Get stock news feed API
