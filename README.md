@@ -13,6 +13,8 @@ Take a look at an example web app that uses TickerTick API.
 - All endpoints have a rate limit of __6 requests per minute__ from the same IP address. This is enforced by the service.
 - You are welcome to file an issue if you see any problem, like irrelevant stories.
 
+> :warning: An IP address has a rate limit of __6 requests per minute__.
+
 ## Get stock news feed API
 This API returns a feed of the lastest news stories relevant to the query in reverse chronological order.
 
@@ -94,6 +96,8 @@ The response is a json blob consisting of an array of stories in reverse chronol
 | `time` | The timestamp of the news story. It's the number of milliseconds since the "Unix epoch", 1970-01-01T00:00:00Z (UTC). The same semantics as `Date.now()` in Javascript. |
 | `favicon_url` | The url of the favicon of the source website. |
 | `tags` | An array of strings. Each string is the ticker the story is about. |
+
+> :warning: It's a known issue that some story timestamps are not accurate depending on the source websites. However, the overall accuracy should be fairly good. Most of story timestamps should be at least within one day of real story publication times. The root cause of this issue is a trade-off between backend resource usage and accuracy.
 
 An example response from reqeust URL https://api.tickertick.com/feed?q=(or%20tt:fb%20tt:aapl)&lang=en&n=2
 
