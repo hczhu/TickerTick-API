@@ -97,7 +97,7 @@ The response is a json blob consisting of an array of stories in reverse chronol
 | `favicon_url` | The url of the favicon of the source website. |
 | `tags` | An array of strings. Each string is the ticker the story is about. |
 
-> :warning: It's a known issue that some story timestamps are not accurate depending on the source websites. However, the overall accuracy should be fairly good. Most of story timestamps should be at least within one day of real story publication times. The root cause of this issue is a trade-off between backend resource usage and accuracy.
+> :warning: It's a known issue that some story timestamps are not accurate to varying degrees depending on the source websites. However, the overall accuracy should be fairly good. Most of story timestamps should be at least within one day of real story publication times. The root cause of this issue is a trade-off between backend resource usage and accuracy.
 
 An example response from reqeust URL https://api.tickertick.com/feed?q=(or%20tt:fb%20tt:aapl)&lang=en&n=2
 
