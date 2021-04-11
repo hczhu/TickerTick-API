@@ -96,37 +96,55 @@ The response is a json blob consisting of an array of stories in reverse chronol
 | `time` | The timestamp of the news story. It's the number of milliseconds since the "Unix epoch", 1970-01-01T00:00:00Z (UTC). The same semantics as `Date.now()` in Javascript. |
 | `favicon_url` | The url of the favicon of the source website. |
 | `tags` | An array of strings. Each string is the ticker the story is about. |
+| `similar_stories` | An array of strings. Each string is a story id referencing another story in the response. The referenced stories are considered stories similar to this one.|
 
 > :warning: It's a known issue that some story timestamps are not accurate to varying degrees depending on the source websites. However, the overall accuracy should be fairly good. Most of story timestamps should be at least within one day of real story publication times. The root cause of this issue is a trade-off between backend resource usage and accuracy.
 
-An example response from reqeust URL https://api.tickertick.com/feed?q=(or%20tt:fb%20tt:aapl)&lang=en&n=2
+An example response from reqeust URL https://api.tickertick.com/feed?q=(and%20l:en%20tt:fb%20t:533%20t:data)&n=44
 
 ```
 {
   "stories": [
+    ...
     {
-      "id": "-8234495239863619632",
-      "title": "Apple Inc.: Form FWP - 2020-08-13",
-      "url": "https://www.sec.gov/Archives/edgar/data/320193/0001193125-20-219289-index.html",
-      "site": "www.sec.gov",
-      "time": 1597302000000,
-      "favicon_url": "https://www.sec.gov/themes/custom/secgov/favicon.ico",
-      "tags": [
-        "aapl"
-      ]
-    },
-    {
-      "id": "3888876773322702496",
-      "title": "Facebook Inc: Form 4 - 2020-08-13",
-      "url": "https://www.sec.gov/Archives/edgar/data/1326801/0000950103-20-015792-index.html",
-      "site": "www.sec.gov",
-      "time": 1597302000000,
-      "favicon_url": "https://www.sec.gov/themes/custom/secgov/favicon.ico",
+      "id": "-8337688391260457343",
+      "title": "533 million Facebook users’ personal data leaked online",
+      "url": "https://www.cyberscoop.com/533-million-facebook-users-leaked-online-fraud-cybercrime/",
+      "site": "cyberscoop.com",
+      "time": 1617637314000,
+      "favicon_url": "https://tickertick.com/website_icons/cyberscoop.com.ico",
       "tags": [
         "fb"
       ]
-    }
-  ],
+    },
+    ...
+    {
+      "id": "6696963651995134378",
+      "title": "Facebook data on 533 million users reemerge online for free",
+      "url": "https://www.latimes.com/business/story/2021-04-03/facebook-data-hack",
+      "site": "latimes.com",
+      "time": 1617408000000,
+      "favicon_url": "https://tickertick.com/website_icons/latimes.com.ico",
+      "tags": [
+        "fb"
+      ],
+      "similar_stories": [
+        "-8337688391260457343",
+        "-3821801551305481556",
+        "-6524004435438445443",
+        "2801015657891610459",
+        "3614998498811631004",
+        "-3992463990792441647",
+        "1565025985713259443",
+        "8800013191505707483",
+        "-5314230086780537240",
+        "8481455956967105134",
+        "9138167294273170557",
+        "-2370472546134774787",
+        "-1825784017164803279"
+      ]
+    },
+    ...
   "last_id": "3888876773322702496"
 }
 
