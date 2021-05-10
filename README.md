@@ -98,7 +98,10 @@ The response is a json blob consisting of an array of stories in reverse chronol
 | `tags` | An array of strings. Each string is the ticker the story is about. |
 | `similar_stories` | An array of strings. Each string is a story id referencing another story in the response. The referenced stories are considered stories similar to this one.|
 
+<!---
 > :warning: It's a known issue that some story timestamps are not accurate to varying degrees depending on the source websites. However, the overall accuracy should be fairly good. Most of story timestamps should be at least within one day of real story publication times. The root cause of this issue is a trade-off between backend resource usage and accuracy.
+> 
+-->
 
 An example response from reqeust URL https://api.tickertick.com/feed?q=(and%20l:en%20tt:fb%20t:533%20t:data)&n=44
 
