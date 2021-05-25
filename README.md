@@ -32,7 +32,7 @@ News stories about Apple Inc. - https://api.tickertick.com/feed?q=tt:aapl&lang=e
 | Parameter  | Description                     | Options                            |  Example value    |
 |----------------|-------------------------------|--------------------------------------------------------|------------|
 | q              | The query string       | Any query string in a query language<br>(explained below) | `tt:aapl`  |
-| lang           | Comma-separated languages of requested feed stories| `en`: English<br>`cn`: Chinese<br>`en,cn`: Both  | `en,cn` |
+| lang           | Comma-separated languages of requested feed stories| `en`: English<br>`zh`: Chinese<br>`en,zh`: Both  | `en,zh` |
 | n              | How many latest news stories to fetch|   Any number between 1 and 1000 |      `42`      |
 | last    | A story id for pagination.<br>Fetch news stories older than the story with this id.| A 64 bit integer. Each returned news story has such an id. |  `6844326865886118959`       |
 | hours_ago | Only return stories from this number of hours ago.| A 32 bit positive integer. | `2400` (100 days ago) <br> `24000` (1000 days ago)|
