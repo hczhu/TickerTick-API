@@ -2,7 +2,7 @@
 
 Welcome to the TickerTick API!
 
-The TickerTick API provides fresh and relevant stock news stories through a powerful query language. The API covers all companies listed in US stock markets. The source websites of the news stories include a lot of well-known websites and all company filings.
+The TickerTick API provides fresh and relevant stock news stories through a powerful query language. The API covers all companies listed in US stock markets. The source websites of the news stories include around ten thousand websites.
 
 Take a look at an example web app that uses TickerTick API.
 - [https://tickertick.com](https://tickertick.com/?q=FB%2CAMZN%2CAAPL%2CNFLX%2CGOOG&lang=en)
