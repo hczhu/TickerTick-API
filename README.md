@@ -25,7 +25,7 @@ This API returns a feed of the lastest news stories relevant to the query in rev
 ### Example request URL
 News stories about Apple Inc. - https://api.tickertick.com/feed?q=tt:aapl&lang=en
 
-[Rendered stock news feed for Apple Inc.](https://tickertick.com/?q=AAPL)
+[Rendered stock news feed for Apple Inc.](https://tickertick.com/ticker/aapl/feed)
 
 ### Parameters
 
