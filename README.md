@@ -23,7 +23,7 @@ This API returns a feed of the lastest news stories relevant to the query in rev
 `GET` https://api.tickertick.com/feed
 
 ### Example request URL
-News stories about Apple Inc. - https://api.tickertick.com/feed?q=tt:aapl&lang=en
+News stories about Apple Inc. (its ticker is __aapl__) - https://api.tickertick.com/feed?q=tt:aapl&lang=en
 
 [Rendered stock news feed for Apple Inc.](https://tickertick.com/ticker/aapl/feed)
 
@@ -36,7 +36,6 @@ News stories about Apple Inc. - https://api.tickertick.com/feed?q=tt:aapl&lang=e
 | n              | How many latest news stories to fetch|   Any number between 1 and 1000 |      `42`      |
 | last    | A story id for pagination.<br>Fetch news stories older than the story with this id.| A 64 bit integer. Each returned news story has such an id. |  `6844326865886118959`       |
 | hours_ago | Only return stories from this number of hours ago.| A 32 bit positive integer. | `2400` (100 days ago) <br> `24000` (1000 days ago)|
-| excl  | Comma-separated types of stories to exclude from the requested feed  | `filings`: exclude  company filings<br> `ugc`: exclude user generated content (e.g. forum posts) | `filings,ugc` |
 
 
 ### The query language
@@ -46,7 +45,7 @@ query => term | (and query_list) | (or query_list) | (diff query query)
 
 query_list => query query_list | term
 
-term => tt:any_stock_ticker | tx:any_string | s:any_website_domain_name
+term => tt:any_stock_ticker | s:any_website_domain_name
 
 
 ```
