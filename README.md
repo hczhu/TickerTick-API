@@ -209,5 +209,5 @@ The backend of TickerTick API uses [Favicon Grabber](https://github.com/antongun
 
 ## API use cases
 
-## TickerTick.com
+### TickerTick.com
 TickerTick.com provides the broadest stock news.
