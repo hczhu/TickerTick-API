@@ -191,3 +191,20 @@ Search for any tickers matching `aa` - https://api.tickertick.com/tickers?p=aa&n
   ]
 }
 ```
+
+## Contact
+
+HC Zhu - [mail AT tickertick.com](mailto:mail@tickertick.com) - [@hc_zzzzz](https://twitter.com/hc_zzzzz)
+
+## Acknowledgments
+
+### SpaCy
+The backend of TickerTick API uses [spaCy](https://github.com/explosion/spaCy) to process and anaylyze stories.
+
+### MediaWiki API
+The backend of TickerTick API uses [MediaWiki API](https://www.wikidata.org/w/api.php) to get entities related to a tickre, e.g. `Elon Musk` for `TSLA`, and `WhatsApp` for `FB`.
+
+### Favicon Grabber
+The backend of TickerTick API uses [Favicon Grabber](https://github.com/antongunov/favicongrabber.com) to fetch website favicons.
+
+## API use cases
