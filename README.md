@@ -208,3 +208,6 @@ The backend of TickerTick API uses [MediaWiki API](https://www.wikidata.org/w/ap
 The backend of TickerTick API uses [Favicon Grabber](https://github.com/antongunov/favicongrabber.com) to fetch website favicons.
 
 ## API use cases
+
+## TickerTick.com
+TickerTick.com provides the broadest stock news.
