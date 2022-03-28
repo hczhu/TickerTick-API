@@ -45,7 +45,7 @@ query --> term | (and query_list) | (or query_list) | (diff query query)
 
 query_list --> query query_list | term
 
-term --> tt:any_stock_ticker | s:any_website_domain_name | E:any_entity
+term --> tt:any_stock_ticker | s:any_website_domain_name | E:any_entity | T:story_type 
 
 ```
 ### Operator semantics
@@ -64,6 +64,19 @@ term --> tt:any_stock_ticker | s:any_website_domain_name | E:any_entity
 | `TT:stock_ticker`| Request news stories about `stock_ticker` and only match entities in the story title. | `TT:aapl`  <br>`TT:tsla` <br> `TT:COIN` |
 | `s:domain_name`| Request news stories from websites on domain `domain_name` <br> (`domain_name` shouldn't contain '.' or '/')  | `s:wsj` <br> `s:cnbc`|
 | `E:any_entity`| Request news stories with titles semantically matching `any_entity`. <br> (replace any whitespace in `any_entity` by `_` )<br> (`any_entity` shold be in lower case)  | `E:shiba_inu`  <br> `E:rent_the_runway` <br> `E:elon_musk`  <br> `E:zoom` |
+| `T:story_type`| Request news stories of a specific type. See for the list of story types.  | `T:fin_news`  <br> `T:sec` |
+
+### Story types
+| Term | Story type| Example query |
+|---------------|-----------|----|
+| T:fin_news | News stories from a select set of [top financial/technology news sources](https://github.com/hczhu/TickerTick-API/blob/master/top-news-sources.txt) | [T:fin_news](https://api.tickertick.com/feed?q=T:fin_news)
+| T:earning | Company earnings news (e.g. presentations, transcripts) | [T:earning](https://api.tickertick.com/feed?q=T:earning) 
+| T:market | Stock market news | [T:market](https://api.tickertick.com/feed?q=T:market)
+| T:sec | SEC filings | [T:sec](https://api.tickertick.com/feed?q=T:sec)
+| T:sec_fin | Quarterly/annual financial reports | [T:sec_fin](https://api.tickertick.com/feed?q=T:sec_fin)
+| T:trade | Trading news | [T:trade](https://api.tickertick.com/feed?q=T:trade)
+| T:ugc | News stories from user-generated content platforms/forums, e.g. Reddit | [T:ugc](https://api.tickertick.com/feed?q=T:ugc)
+
 
 
 ### Example queries
