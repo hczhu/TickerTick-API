@@ -5,7 +5,7 @@ Welcome to the TickerTick API!
 The TickerTick API provides fresh and relevant stock news stories through a powerful query language. The API covers all companies listed in US stock markets. The source websites of the news stories include around ten thousand websites.
 
 Take a look at an example web app that uses TickerTick API.
-- [https://tickertick.com](https://tickertick.com/?q=FB%2CAMZN%2CAAPL%2CNFLX%2CGOOG&lang=en)
+- [https://tickertick.com](https://tickertick.com/?q=FB%2CAMZN%2CAAPL%2CNFLX%2CGOOG)
 
 
 ### Terms of Use
@@ -23,7 +23,7 @@ This API returns a feed of the lastest news stories relevant to the query in rev
 `GET` https://api.tickertick.com/feed
 
 ### Example request URL
-News stories about Apple Inc. (its ticker is __aapl__) - https://api.tickertick.com/feed?q=tt:aapl&lang=en
+News stories about Apple Inc. (its ticker is __aapl__) - https://api.tickertick.com/feed?q=tt:aapl
 
 [Rendered stock news feed for Apple Inc.](https://tickertick.com/ticker/aapl/feed)
 
@@ -32,7 +32,6 @@ News stories about Apple Inc. (its ticker is __aapl__) - https://api.tickertick.
 | Parameter  | Description                     | Options                            |  Example value    |
 |----------------|-------------------------------|--------------------------------------------------------|------------|
 | q              | The query string       | Any query string in a query language<br>(explained below) | `(or tt:aapl tt:amzn)`  |
-| lang           | Comma-separated languages of requested feed stories| `en`: English<br>`zh`: Chinese<br>`en,zh`: Both  | `en,zh` |
 | n              | How many latest news stories to fetch|   Any number between 1 and 1000 |      `42`      |
 | last    | A story id for pagination.<br>Fetch news stories older than the story with this id.| A 64 bit integer. Each returned news story has such an id. |  `6844326865886118959`       |
 | hours_ago | Only return stories from this number of hours ago.| A 32 bit positive integer. | `2400` (100 days ago) <br> `24000` (1000 days ago)|
@@ -92,7 +91,7 @@ term --> tt:any_stock_ticker | s:any_website_domain_name | E:any_entity | T:stor
 
 | URL parameters | Semanrics | API call URL | Rendered stories |
 |---------------|-----------|-------|---------------------------------|
-| `q=tt:amzn`<br>`hours_ago=14400`<br>`lang=en`<br>`n=5` | Get 5 news stories in English about Amazon(`amzn`) from 600 days ago | https://api.tickertick.com/feed?q=tt:amzn&hours_ago=14400&lang=en&n=5  | [`q=tt:amzn&hours_ago=14400&lang=en&n=5`](https://api.tickertick.com/search.html?q=tt:amzn&hours_ago=14400&lang=en&n=5) |
+| `q=tt:amzn`<br>`hours_ago=14400`<br>`n=5` | Get 5 news stories in English about Amazon(`amzn`) from 600 days ago | https://api.tickertick.com/feed?q=tt:amzn&hours_ago=14400&n=5  | [`q=tt:amzn&hours_ago=14400&n=5`](https://api.tickertick.com/search.html?q=tt:amzn&hours_ago=14400&n=5) |
 | `q=tt:amzn`<br>`last=1866158884274957563`<br>`n=5` | Get 5 stories about Amazon(`amzn`) older than story with id `1866158884274957563`| https://api.tickertick.com/feed?q=tt:amzn&last=1866158884274957563&n=5  | [`q=tt:amzn&last=1866158884274957563&n=5`](https://api.tickertick.com/search.html?q=tt:amzn&last=1866158884274957563&n=5) |
 
 
