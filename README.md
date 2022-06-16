@@ -10,10 +10,10 @@ Take a look at an example web app that uses TickerTick API.
 
 ### Terms of Use
 - The API is free of commercial/non-commercialuse use.
-- All endpoints have a rate limit of __60 requests per minute__ from the same IP address. This is enforced by the service. More precisely, an IP will be blocked for one minute if more than 100 requests are sent within any one minute time window.
+- All endpoints have a rate limit of __30 requests per minute__ from the same IP address. This is enforced by the service. More precisely, an IP will be blocked for one minute if more than 5 requests are sent within any 10 second time window.
 - You are welcome to file an issue if you see any problem, like irrelevant stories.
 
-> :warning: An IP address has a rate limit of __60 requests per minute__. Contact `mail AT tickertick.com` if you need a higher request rate.
+> :warning: An IP address has a rate limit of __30 requests per minute__. Contact `mail AT tickertick.com` if you need a higher request rate.
 
 ## Get stock news feed API
 This API returns a feed of the lastest news stories relevant to the query in reverse chronological order.
