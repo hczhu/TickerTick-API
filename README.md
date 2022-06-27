@@ -63,7 +63,7 @@ term --> tt:any_stock_ticker | s:any_website_domain_name | E:any_entity | T:stor
 | `TT:stock_ticker`| Request news stories about `stock_ticker` and only match entities in the story title. | `TT:aapl`  <br>`TT:tsla` <br> `TT:COIN` |
 | `s:domain_name`| Request news stories from websites on domain `domain_name` <br> (`domain_name` shouldn't contain '.' or '/')  | `s:wsj` <br> `s:cnbc`|
 | `E:any_entity`| Request news stories with titles semantically matching `any_entity`. <br> (replace any whitespace in `any_entity` by `_` )<br> (`any_entity` shold be in lower case)  | `E:shiba_inu`  <br> `E:rent_the_runway` <br> `E:elon_musk`  <br> `E:zoom` |
-| `T:story_type`| Request news stories of a specific type. See for the list of story types.  | `T:fin_news`  <br> `T:sec` |
+| `T:story_type`| Request news stories of a specific type. See [here](https://github.com/hczhu/TickerTick-API/edit/master/README.md#story-types) for the list of story types.  | `T:fin_news`  <br> `T:sec` |
 
 ### Story types
 | Term | Story type| Example query |
