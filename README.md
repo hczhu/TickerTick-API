@@ -207,7 +207,7 @@ Search for any tickers matching `aa` - https://api.tickertick.com/tickers?p=aa&n
 
 ## Contact
 
-HC Zhu - [mail AT tickertick.com](mailto:mail@tickertick.com) - [@hc_zzzzz](https://twitter.com/hc_zzzzz)
+HC Zhu - [mail AT tickertick.com](mailto:mail@tickertick.com) - [@hzhu_](https://twitter.com/hzhu_)
 
 ## Acknowledgments
 
