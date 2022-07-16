@@ -74,7 +74,8 @@ term --> tt:any_stock_ticker | s:any_website_domain_name | E:any_entity | T:stor
 | T:sec | SEC filings | [T:sec](https://api.tickertick.com/feed?q=T:sec)
 | T:sec_fin | Quarterly/annual financial reports | [T:sec_fin](https://api.tickertick.com/feed?q=T:sec_fin)
 | T:trade | Trading news | [T:trade](https://api.tickertick.com/feed?q=T:trade)
-| T:ugc | News stories from user-generated content platforms/forums, e.g. Reddit | [T:ugc](https://api.tickertick.com/feed?q=T:ugc)
+| T:ugc | News stories from [user-generated content platforms](https://github.com/hczhu/TickerTick-API/blob/master/ugc-domains.txt), e.g. Reddit.  | [T:ugc](https://api.tickertick.com/feed?q=T:ugc)
+| T:analysis | Stock analsis articles from [a curated list of soureces]() | [T:analysis](https://api.tickertick.com/feed?q=T:analysis)
 
 
 
