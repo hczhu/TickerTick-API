@@ -68,15 +68,15 @@ term --> tt:any_stock_ticker | s:any_website_domain_name | E:any_entity | T:stor
 ### Story types
 | Term | Story type| Example query |
 |---------------|-----------|----|
-| T:fin_news | News stories from a select set of [top financial/technology news sources](https://github.com/hczhu/TickerTick-API/blob/master/top-news-sources.txt) | [T:fin_news](https://api.tickertick.com/feed?q=T:fin_news)
+| T:fin_news | News stories from a curated list of [top financial/technology news sources](https://github.com/hczhu/TickerTick-API/blob/master/top-news-sources.txt) | [T:fin_news](https://api.tickertick.com/feed?q=T:fin_news)
 | T:earning | Company earnings news (e.g. presentations, transcripts) | [T:earning](https://api.tickertick.com/feed?q=T:earning) 
 | T:market | Stock market news | [T:market](https://api.tickertick.com/feed?q=T:market)
 | T:sec | SEC filings | [T:sec](https://api.tickertick.com/feed?q=T:sec)
 | T:sec_fin | Quarterly/annual financial reports | [T:sec_fin](https://api.tickertick.com/feed?q=T:sec_fin)
 | T:trade | Trading news | [T:trade](https://api.tickertick.com/feed?q=T:trade)
-| T:ugc | News stories from [user-generated content platforms](https://github.com/hczhu/TickerTick-API/blob/master/ugc-domains.txt), e.g. Reddit.  | [T:ugc](https://api.tickertick.com/feed?q=T:ugc)
+| T:ugc | News stories from a curated list of [user-generated content platforms](https://github.com/hczhu/TickerTick-API/blob/master/ugc-domains.txt), e.g. Reddit.  | [T:ugc](https://api.tickertick.com/feed?q=T:ugc)
 | T:analysis | Stock analysis articles from [a curated list of soureces](https://github.com/hczhu/TickerTick-API/blob/master/top-news-sources.txt) | [T:analysis](https://api.tickertick.com/feed?q=T:analysis)
-| T:industry | Industry publications from [a curated list of soureces]() | [T:industry](https://api.tickertick.com/feed?q=T:industry)
+| T:industry | Industry publications from [a curated list of soureces]() | [T:industry](https://github.com/hczhu/TickerTick-API/blob/master/industry-publications.txt) | [T:industry](https://api.tickertick.com/feed?q=T:industry)
 
 
 
