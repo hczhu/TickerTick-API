@@ -1,4 +1,4 @@
-## A simple way to retrieve most important news
+## A simple way to retrieve most important news stories
 
 The running example below retrieves the most important news for $META and $AMZN
 1. Use [the following query](https://api.tickertick.com/feed?n=200&q=(diff%20(or%20(or%20(or%20TT:amzn%20TT:meta)%20(and%20tag:best%20(or%20tt:meta%20tt:amzn)%20(or%20T:fin_news%20T:analysis%20T:industry))))%20(or%20T:trade%20T:market%20T:ugc))) to retrieve candidate news stories. Note that this is a special term `tag:best`.
