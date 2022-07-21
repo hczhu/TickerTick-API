@@ -8,7 +8,7 @@ The running example below retrieves the most important news for $META and $AMZN
  (or T:trade T:market T:ugc))
 ```
 2. Look for the stories in the response which have a `similar_stories` section. A story and all its similar stories form a cluster of stories. The story is called the primary story of the cluster.
-3. If a cluster has more than 5 stories, the primary story is considered the most important.
+3. If a cluster has more than 3(this is tunable) stories, the primary story is considered the most important.
 4. If a cluster contains any story with a `best` tag, the story with a `best` tag is considered most important. 
 For example, the following story satisfies the two criteria above 
 ```
