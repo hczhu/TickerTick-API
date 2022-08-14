@@ -44,7 +44,7 @@ query --> term | (and query_list) | (or query_list) | (diff query query)
 
 query_list --> query query_list | term
 
-term --> tt:any_stock_ticker | s:any_website_domain_name | E:any_entity | T:story_type 
+term --> tt:any_stock_ticker | TT:any_stock_ticker | s:any_website_domain_name | E:any_entity | T:story_type 
 
 ```
 ### Operator semantics
