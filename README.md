@@ -9,7 +9,7 @@ Take a look at an example web app that uses TickerTick API.
 
 
 ### Terms of Use
-- The API is free of commercial/non-commercialuse use.
+- The API is free of commercial/non-commercial use.
 - All endpoints have a rate limit of __30 requests per minute__ from the same IP address. This is enforced by the service. More precisely, an IP will be blocked for one minute if more than 5 requests are sent within any 10 second time window.
 - You are welcome to file an issue if you see any problem, like irrelevant stories.
 
