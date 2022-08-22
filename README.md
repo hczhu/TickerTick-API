@@ -226,3 +226,9 @@ The backend of TickerTick API uses [Favicon Grabber](https://github.com/antongun
 
 ### TickerTick.com
 [TickerTick.com](https://tickertick.com) provides the broadest stock news.
+
+## Big Tech News Twitter bot
+[Big Tech News](https://twitter.com/BigTech_News) uses TickerTick API to fetch news about big tech.
+
+## Trading Saga
+[Trading Saga](https://tradingsaga.com/) is a quick and immersive trading game and uses TickerTick API to fetch stock news.
