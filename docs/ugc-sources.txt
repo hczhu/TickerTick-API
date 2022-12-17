@@ -1,7 +1,5 @@
-investorshub.advfn.com
-boards.fool.com
-stackoverflow.com
 bestbuy.com
+boards.fool.com
 community.alteryx.com
 community.arlo.com
 community.cadence.com
@@ -18,6 +16,7 @@ community.sonarsource.com
 community.southwest.com
 consumersenergyinyourcommunity.wordpress.com
 copartcommunity.com
+enterprisecommunity.org
 feng.com
 investorshangout.com
 investorshub.advfn.com
@@ -27,8 +26,7 @@ quora.com
 qvc.com
 reddit.com
 stackoverflow.com
+teamblind.compost
 techcommunity.microsoft.com
 teslamotorsclub.com
 twitter.com
-enterprisecommunity.org
-teamblind.compost
