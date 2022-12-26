@@ -2,7 +2,7 @@
 
 Welcome to the TickerTick API.
 
-The TickerTick API provides fresh and relevant stock news stories through a powerful query language. The API covers all companies listed in US stock markets([around 20,000 tickers](https://api.tickertick.com/tickers?n=100000)) and [hundreds of top startups](https://api.tickertick.com/tickers?n=100000&p=.). The source websites of the news stories include around ten thousand websites.
+The TickerTick API provides the latest stock news stories through a powerful query language. The API covers all companies listed in US stock markets([around 10,000 tickers](https://api.tickertick.com/tickers?n=100000)) and [hundreds of top startups](https://api.tickertick.com/tickers?n=100000&p=.). The source websites of the news stories include around ten thousand websites.
 
 Take a look at an example web app that uses TickerTick API.
 - [https://tickertick.com](https://tickertick.com/?q=FB%2CAMZN%2CAAPL%2CNFLX%2CGOOG)
@@ -10,13 +10,13 @@ Take a look at an example web app that uses TickerTick API.
 
 ### Terms of Use
 - The API is free of commercial/non-commercial use.
-- All endpoints have a rate limit of __30 requests per minute__ from the same IP address. This is enforced by the service. More precisely, an IP will be blocked for one minute if more than 5 requests are sent within any 10 second time window.
+- All endpoints have a rate limit of __30 requests per minute__ from the same IP address. The service enforces this. More precisely, an IP will be blocked for one minute if more than five requests are sent within any 10-second time window.
 - You are welcome to file an issue if you see any problem, like irrelevant stories.
 
 > :warning: An IP address has a rate limit of __30 requests per minute__. DM my Twitter account(in my Github profile) if you need a higher request rate.
 
 ## Get stock news feed API
-This API returns a feed of the lastest news stories relevant to the query in reverse chronological order.
+This API returns a feed of the latest news stories relevant to the query in reverse chronological order.
 
 
 ### Endpoint
@@ -33,8 +33,8 @@ News stories about Apple Inc. (its ticker is __aapl__) - https://api.tickertick.
 |----------------|-------------------------------|--------------------------------------------------------|------------|
 | q              | The query string       | Any query string in a query language<br>(explained below) | `(or tt:aapl tt:amzn)`  |
 | n              | How many latest news stories to fetch|   Any number between 1 and 1000 |      `42`      |
-| last    | A story id for pagination.<br>Fetch news stories older than the story with this id.| A 64 bit integer. Each returned news story has such an id. |  `6844326865886118959`       |
-| hours_ago | Only return stories from this number of hours ago.| A 32 bit positive integer. | `2400` (100 days ago) <br> `24000` (1000 days ago)|
+| last    | A story id for pagination.<br>Fetch news stories older than the story with this id.| A 64-bit integer. Each returned news story has such an id. |  `6844326865886118959`       |
+| hours_ago | Only return stories from this number of hours ago.| A 32-bit positive integer. | `2400` (100 days ago) <br> `24000` (1000 days ago)|
 
 
 ### The query language
@@ -62,7 +62,7 @@ term --> tt:any_stock_ticker | TT:any_stock_ticker | s:any_website_domain_name |
 | `tt:stock_ticker`| Request news stories about `stock_ticker`  | `tt:aapl`  <br>`tt:tsla` <br> `tt:COIN` |
 | `TT:stock_ticker`| Request news stories about `stock_ticker` and only match entities in the story title. | `TT:aapl`  <br>`TT:tsla` <br> `TT:COIN` |
 | `s:domain_name`| Request news stories from websites on domain `domain_name` <br> (`domain_name` shouldn't contain '.' or '/')  | `s:wsj` <br> `s:cnbc`|
-| `E:any_entity`| Request news stories with titles semantically matching `any_entity`. <br> (replace any whitespace in `any_entity` by `_` )<br> (`any_entity` shold be in lower case)  | `E:shiba_inu`  <br> `E:rent_the_runway` <br> `E:elon_musk`  <br> `E:zoom` |
+| `E:any_entity`| Request news stories with titles semantically matching `any_entity`. <br> (replace any whitespace in `any_entity` by `_` )<br> (`any_entity` should be in lower case)  | `E:shiba_inu`  <br> `E:rent_the_runway` <br> `E:elon_musk`  <br> `E:zoom` |
 | `T:story_type`| Request news stories of a specific type. See [the list of all story types]([https://github.com/hczhu/TickerTick-API/edit/master/README.md#story-types](https://github.com/hczhu/TickerTick-API/blob/master/README.md#story-types).  | `T:fin_news`  <br> `T:sec` |
 
 ### Story types
@@ -102,13 +102,13 @@ The response is a JSON blob consisting of an array of stories in reverse chronol
 
 | Story field | Description |
 |---------------|-----------|
-| `id`  | A unique string id of the story. The `id` can be used for pagination as the value of parameter `last`.|
+| `id`  | A unique string id of the story. The `id` can be used for pagination as the value of the parameter `last`.|
 | `title` | The title of the news story. |
 | `url` | The url of the news story. |
 | `site` | The source website of the news story. |
 | `time` | The timestamp of the news story. It's the number of milliseconds since the "Unix epoch", 1970-01-01T00:00:00Z (UTC). The same semantics as `Date.now()` in Javascript. |
 | `favicon_url` | The url of the favicon of the source website. |
-| `tags` | An array of strings. Each string is the ticker the story is about. This field is presented only when any `tt:` term is in the query.|
+| `tags` | An array of strings. Each string is the ticker for which the story is. This field is presented only when any `tt:` term is in the query.|
 | `similar_stories` | An array of strings. Each string is a story id referencing another story in the response. The referenced stories are considered stories similar to this one. This field is optional. |
 | `description` | The description of the news story. This field is optional. | 
 
