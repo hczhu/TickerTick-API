@@ -1,6 +1,6 @@
 ## Introduction
 
-Welcome to the TickerTick API!
+Welcome to the TickerTick API.
 
 The TickerTick API provides fresh and relevant stock news stories through a powerful query language. The API covers all companies listed in US stock markets([around 20,000 tickers](https://api.tickertick.com/tickers?n=100000)) and [hundreds of top startups](https://api.tickertick.com/tickers?n=100000&p=.). The source websites of the news stories include around ten thousand websites.
 
@@ -93,7 +93,7 @@ term --> tt:any_stock_ticker | TT:any_stock_ticker | s:any_website_domain_name |
 
 | URL parameters | Semanrics | API call URL | Rendered stories |
 |---------------|-----------|-------|---------------------------------|
-| `q=tt:amzn`<br>`hours_ago=14400`<br>`n=5` | Get 5 news stories in English about Amazon(`amzn`) from 600 days ago | https://api.tickertick.com/feed?q=tt:amzn&hours_ago=14400&n=5  | [`q=tt:amzn&hours_ago=14400&n=5`](https://api.tickertick.com/search.html?q=tt:amzn&hours_ago=14400&n=5) |
+| `q=tt:amzn`<br>`hours_ago=14400`<br>`n=5` | Get 5 news stories about Amazon(`amzn`) from 600 days ago | https://api.tickertick.com/feed?q=tt:amzn&hours_ago=14400&n=5  | [`q=tt:amzn&hours_ago=14400&n=5`](https://api.tickertick.com/search.html?q=tt:amzn&hours_ago=14400&n=5) |
 | `q=tt:amzn`<br>`last=1866158884274957563`<br>`n=5` | Get 5 stories about Amazon(`amzn`) older than story with id `1866158884274957563`| https://api.tickertick.com/feed?q=tt:amzn&last=1866158884274957563&n=5  | [`q=tt:amzn&last=1866158884274957563&n=5`](https://api.tickertick.com/search.html?q=tt:amzn&last=1866158884274957563&n=5) |
 
 
