@@ -117,49 +117,67 @@ The response is a JSON blob consisting of an array of stories in reverse chronol
 > 
 -->
 
-An example response from reqeust URL https://api.tickertick.com/feed?q=(and%20l:en%20tt:aapl)&n=44
+An example response from reqeust URL [https://api.tickertick.com/feed?q=(and T:curated tt:aapl)&n=30](https://api.tickertick.com/feed?q=(and%20T:curated%20tt:aapl)&n=30)
 
 ```
 {
-      "id": "6242802208828693749",
-      "title": "OnePlus founder Carl Pei quit mid-pandemic to launch an Apple challenger. He envisages an ecosystem of devices with his current startup, Nothing.",
-      "url": "https://markets.businessinsider.com/news/stocks/nothing-founder-carl-pei-quit-oneplus-in-pandemic-apple-2021-11",
-      "site": "businessinsider.com",
-      "time": 1636624740000,
-      "favicon_url": "https://static.tickertick.com/website_icons/businessinsider.com.ico",
-      "tags": [
-        "aapl"
-      ],
-      "description": "Nothing CEO and founder Carl Pei. Nothing"
-    },
+  "stories": [
     {
-      "id": "-7457146849426956238",
-      "title": "iCloud for Windows gets a built in password generator",
-      "url": "https://www.theverge.com/2021/11/11/22775976/icloud-for-windows-password-generator-prores-proraw",
-      "site": "theverge.com",
-      "time": 1636623168000,
-      "favicon_url": "https://static.tickertick.com/website_icons/theverge.com.ico",
+      "id": "426800427666858718",
+      "title": "Apple Reality Pro VR Headset: New Leak Reveals Unprecedented Detail",
+      "url": "https://www.forbes.com/sites/davidphelan/2023/06/03/apple-reality-pro-vr-headset-new-leak-reveals-unprecedented-detail/",
+      "site": "forbes.com",
+      "time": 1685790913000,
+      "favicon_url": "https://static.tickertick.com/website_icons/forbes.com.ico",
       "tags": [
         "aapl"
       ],
       "similar_stories": [
-        "6026104833477490720",
-        "-8455375805591907240",
-        "4759898561694343437",
-        "3814604136583654940",
-        "7811723997031023014",
-        "-7906149776187926921",
-        "4042098602080329618",
-        "5670534624353044826"
+        "-3592774926732722485",
+        "5969505199123739307",
+        "-4590978801798836365"
       ],
-      "description": "iCloud for Windows’ password manager in action. | Screenshot: iCloud for Windows A new update for Apple’s iCloud Windows app has added a password generator, as well as ..."
+      "description": "It’s a new mixed-reality headset and it’s a very big deal. It’s a new mixed-reality headset and it’s a very big deal.",
+      "tickers": [
+        "aapl"
+      ]
     },
     ...
-  "last_id": "-990234403033955973"
+    {
+      "id": "7335329458973640129",
+      "title": "Apple’s Rumored VR Headset Has Sent Its Rivals Scrambling",
+      "url": "https://www.wired.com/story/apple-vr-headset-sent-rivals-scrambling/",
+      "site": "wired.com",
+      "time": 1685790000000,
+      "favicon_url": "https://static.tickertick.com/website_icons/wired.com.ico",
+      "tags": [
+        "aapl"
+      ],
+      "description": "If Apple announces a highly anticipated VR headset at its upcoming Worldwide Developers Conference, it may validate work by other companies in the industry.",
+      "tickers": [
+        "aapl"
+      ]
+    },
+    {
+      "id": "-560799274878500337",
+      "title": "PayPal: Don't Fear Apple Pay And Stripe | $AAPL $AXP $MA $V $PYPL",
+      "url": "https://seekingalpha.com/article/4609213-paypal-dont-fear-apple-pay-stripe",
+      "site": "seekingalpha.com",
+      "time": 1685787446000,
+      "favicon_url": "https://static.tickertick.com/website_icons/seekingalpha.com.ico",
+      "tags": [
+        "aapl"
+      ],
+      "tickers": [
+        "aapl"
+      ]
+    }
+  ],
+  "last_id": "-560799274878500337"
 }
-
 ```
 
+  
 
 ## Stock ticker search API
 
