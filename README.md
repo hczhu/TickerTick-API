@@ -63,12 +63,12 @@ term --> tt:any_stock_ticker | TT:any_stock_ticker | s:any_website_domain_name |
 | `TT:stock_ticker`| Request news stories about `stock_ticker` and only match entities in the story title. | `TT:aapl`  <br>`TT:tsla` <br> `TT:COIN` |
 | `s:domain_name`| Request news stories from websites on domain `domain_name` <br> (`domain_name` shouldn't contain '.' or '/')  | `s:wsj` <br> `s:cnbc`|
 | `E:any_entity`| Request news stories with titles semantically matching `any_entity`. <br> (replace any whitespace in `any_entity` by `_` )<br> (`any_entity` should be in lower case)  | `E:shiba_inu`  <br> `E:rent_the_runway` <br> `E:elon_musk`  <br> `E:zoom` |
-| `T:story_type`| Request news stories of a specific type. See [the list of all story types](https://github.com/hczhu/TickerTick-API/blob/master/README.md#story-types).  | `T:fin_news`  <br> `T:sec` |
+| `T:story_type`| Request news stories of a specific type. See [the list of all story types](https://github.com/hczhu/TickerTick-API/blob/master/README.md#story-types).  | `T:curated`  <br> `T:sec` |
 
 ### Story types
 | Term | Story type| Example query |
 |---------------|-----------|----|
-| T:fin_news | News stories from a curated list of [top financial/technology news sources](https://github.com/hczhu/TickerTick-API/blob/master/docs/top-news-sources.txt) | [T:fin_news](https://api.tickertick.com/feed?q=T:fin_news)
+| T:curated | News stories from a curated list of [top financial/technology news sources](https://github.com/hczhu/TickerTick-API/blob/master/docs/top-news-sources.txt) | [T:curated](https://api.tickertick.com/feed?q=T:curated)
 | T:earning | Company earnings news (e.g. presentations, transcripts) | [T:earning](https://api.tickertick.com/feed?q=T:earning) 
 | T:market | Stock market news | [T:market](https://api.tickertick.com/feed?q=T:market)
 | T:sec | SEC filings | [T:sec](https://api.tickertick.com/feed?q=T:sec)
