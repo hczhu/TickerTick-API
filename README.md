@@ -5,7 +5,7 @@ Welcome to the TickerTick API.
 The TickerTick API provides the latest stock news stories through a powerful query language. The API covers all companies listed in US stock markets([around 10,000 tickers](https://api.tickertick.com/tickers?n=100000)) and [hundreds of top startups](https://api.tickertick.com/tickers?n=100000&p=.). The source websites of the news stories include around ten thousand websites.
 
 Take a look at an example web app that uses TickerTick API.
-- [https://tickertick.com](https://tickertick.com/?q=FB%2CAMZN%2CAAPL%2CNFLX%2CGOOG)
+- [https://tickertick.com](https://tickertick.com)
 
 
 ### Terms of Use
@@ -14,6 +14,14 @@ Take a look at an example web app that uses TickerTick API.
 - You are welcome to file an issue if you see any problem, like irrelevant stories.
 
 > :warning: An IP address has a rate limit of __30 requests per minute__. DM my Twitter account(in my Github profile) if you need a higher request rate.
+
+## Quickstart
+
+Use [the following URL](https://api.tickertick.com/feed?q=(or%20(and%20tt:aapl%20T:curated)%20TT:aapl)&n=200) to get 200 latest news stories for ticker `aapl` (Apple Inc.).
+
+`https://api.tickertick.com/feed?q=(or (and tt:aapl T:curated) TT:aapl)&n=200`
+
+You can replace `aapl` (the ticker) and `200` (the number of news stories to fetch).
 
 ## Get stock news feed API
 This API returns a feed of the latest news stories relevant to the query in reverse chronological order.
