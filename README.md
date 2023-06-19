@@ -17,9 +17,9 @@ Take a look at an example web app that uses TickerTick API.
 
 ## Quickstart
 
-Use [the following URL](https://api.tickertick.com/feed?q=(or%20(and%20tt:aapl%20T:curated)%20TT:aapl)&n=200) to get 200 latest news stories for ticker `aapl` (Apple Inc.).
+Use [the following URL](https://api.tickertick.com/feed?q=z:aapl&n=200) to get 200 latest news stories for ticker `aapl` (Apple Inc.).
 
-`https://api.tickertick.com/feed?q=(or (and tt:aapl T:curated) TT:aapl)&n=200`
+`https://api.tickertick.com/feed?q=z:aapl&n=200`
 
 You can replace `aapl` (the ticker) and `200` (the number of news stories to fetch).
 
@@ -67,8 +67,8 @@ term --> tt:any_stock_ticker | TT:any_stock_ticker | s:any_website_domain_name |
 ### Term semantics
 | Term | Semantics | Examples |
 |---------------|-----------|---|
-| `tt:stock_ticker`| Request news stories about `stock_ticker`  | `tt:aapl`  <br>`tt:tsla` <br> `tt:COIN` |
-| `TT:stock_ticker`| Request news stories about `stock_ticker` and only match entities in the story title. | `TT:aapl`  <br>`TT:tsla` <br> `TT:COIN` |
+| `z:stock_ticker`| Request news stories about `stock_ticker`. | `z:aapl`  <br>`z:tsla` |
+| `tt:stock_ticker`| Request broad news stories about `stock_ticker` (more news stories than `z:stock_ticker`)  | `tt:aapl`  <br>`tt:tsla`  |
 | `s:domain_name`| Request news stories from websites on domain `domain_name` <br> (`domain_name` shouldn't contain '.' or '/')  | `s:wsj` <br> `s:cnbc`|
 | `E:any_entity`| Request news stories with titles semantically matching `any_entity`. <br> (replace any whitespace in `any_entity` by `_` )<br> (`any_entity` should be in lower case)  | `E:shiba_inu`  <br> `E:rent_the_runway` <br> `E:elon_musk`  <br> `E:zoom` |
 | `T:story_type`| Request news stories of a specific type. See [the list of all story types](https://github.com/hczhu/TickerTick-API/blob/master/README.md#story-types).  | `T:curated`  <br> `T:sec` |
