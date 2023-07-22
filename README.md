@@ -24,7 +24,11 @@ Use [this URL](https://api.tickertick.com/feed?q=z:aapl&n=200) to get the 200 la
 You can replace `aapl` (the ticker) and `200` (the number of news stories to fetch).
 
 ### Call TickerTick API in ChatGPT
-![image](https://github.com/hczhu/TickerTick-API/assets/2289363/0506a6d5-204e-4751-807e-49c9b00119ef)
+|  | |
+|---------------|-----------|
+| ![image](https://github.com/hczhu/TickerTick-API/assets/2289363/d62096ae-1909-40cd-a969-b450b6efa75e) | ![image](https://github.com/hczhu/TickerTick-API/assets/2289363/be9dfa8a-0ca1-4da2-87a3-e45186da6c6c)
+
+
 
 
 ## Endpoints
