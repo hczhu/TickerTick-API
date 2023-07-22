@@ -23,6 +23,10 @@ Use [this URL](https://api.tickertick.com/feed?q=z:aapl&n=200) to get the 200 la
 
 You can replace `aapl` (the ticker) and `200` (the number of news stories to fetch).
 
+### Call TickerTick API in ChatGPT
+![image](https://github.com/hczhu/TickerTick-API/assets/2289363/0506a6d5-204e-4751-807e-49c9b00119ef)
+
+
 ## Endpoints
 ### `GET` https://api.tickertick.com/feed
 This endpoint returns a feed of the latest news stories relevant to the query in reverse chronological order.
