@@ -28,15 +28,17 @@ You can replace `aapl` (the ticker) and `200` (the number of news stories to fet
 ```
 pip install pytickertick
 ```
+
+```
+import tickertick as tt
+import tickertick.query as query
+
 feed = tt.get_feed(
     query = query.And(
         query.BroadTicker('aapl'),
         query.StoryType(query.StoryTypes.SEC)
     )
 ) # SEC filings from Apple Inc.
-```
-import tickertick as tt
-import tickertick.query as query
 
 ```
 
