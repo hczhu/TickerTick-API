@@ -4,7 +4,7 @@ Welcome to the TickerTick API.
 
 The TickerTick API provides the latest stock news stories through a powerful query language. The API covers all companies listed in US stock markets ([around 10,000 tickers](https://api.tickertick.com/tickers?n=100000)) and [hundreds of top startups](https://api.tickertick.com/tickers?n=100000&p=.). The source websites of the news stories include around ten thousand websites.
 
-Take a look at an example web app that uses TickerTick API.
+Take a look at an example web app that builds on top of TickerTick API.
 - [https://tickertick.com](https://tickertick.com)
 
 
@@ -22,6 +22,23 @@ Use [this URL](https://api.tickertick.com/feed?q=z:aapl&n=200) to get the 200 la
 `https://api.tickertick.com/feed?q=z:aapl&n=200`
 
 You can replace `aapl` (the ticker) and `200` (the number of news stories to fetch).
+
+## Quickstart with PyTickerTick
+[PyTickerTick](https://pypi.org/project/pytickertick/): an API wrapper for the TickerTick API in Python
+```
+pip install pytickertick
+```
+feed = tt.get_feed(
+    query = query.And(
+        query.BroadTicker('aapl'),
+        query.StoryType(query.StoryTypes.SEC)
+    )
+) # SEC filings from Apple Inc.
+```
+import tickertick as tt
+import tickertick.query as query
+
+```
 
 ### Call TickerTick API in ChatGPT
 |  | |
