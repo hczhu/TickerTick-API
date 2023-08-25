@@ -259,7 +259,7 @@ HC Zhu - [mail AT tickertick.com](mailto:mail@tickertick.com) - [@hzhu_](https:/
 ## Acknowledgments
 
 ### SpaCy
-The backend of TickerTick API uses [spaCy](https://github.com/explosion/spaCy) to process and analyze stories.
+The backend of TickerTick API uses an English Transformer pipeline, [en_core_web_trf](https://spacy.io/models/en#en_core_web_trf), from [spaCy](https://github.com/explosion/spaCy) to extra named entities from text and accomplish other NLP tasks.
 
 ### MediaWiki API
 The backend of TickerTick API uses [MediaWiki API](https://www.wikidata.org/w/api.php) to get entities related to a ticker, e.g. `Elon Musk` for `TSLA`, and `WhatsApp` for `FB`.
