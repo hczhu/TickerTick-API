@@ -41,7 +41,7 @@ feed = tt.get_feed(
 ) # SEC filings from Apple Inc.
 
 ```
-## Historical datasets
+## Historical data
 If you are looking for historical data, e.g., all stock news stories from the past two years, check out [the releases pages](https://github.com/hczhu/TickerTick-API/releases).
 
 ## Call TickerTick API in ChatGPT
