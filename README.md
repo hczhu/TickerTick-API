@@ -44,14 +44,6 @@ feed = tt.get_feed(
 ## Historical data
 If you are looking for historical data, e.g., all stock news stories from the past two years, check out [the releases pages](https://github.com/hczhu/TickerTick-API/releases).
 
-## Call TickerTick API in ChatGPT
-|  | |
-|---------------|-----------|
-| ![image](https://github.com/hczhu/TickerTick-API/assets/2289363/d62096ae-1909-40cd-a969-b450b6efa75e) | ![image](https://github.com/hczhu/TickerTick-API/assets/2289363/be9dfa8a-0ca1-4da2-87a3-e45186da6c6c)
-
-
-
-
 ## Endpoints
 ### `GET` https://api.tickertick.com/feed
 This endpoint returns a feed of the latest news stories relevant to the query in reverse chronological order.
