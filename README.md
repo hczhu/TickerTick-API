@@ -4,8 +4,9 @@ Welcome to the TickerTick API.
 
 The TickerTick API provides the latest stock news stories through a powerful query language. The API covers all companies listed in US stock markets ([around 10,000 tickers](https://api.tickertick.com/tickers?n=100000)) and [hundreds of top startups](https://api.tickertick.com/tickers?n=100000&p=.). The source websites of the news stories include around ten thousand websites.
 
-Take a look at an example web app that builds on top of TickerTick API.
-- [https://tickertick.com](https://tickertick.com)
+Take a look at the following apps built on top of TickerTick API.
+- TickerTick web app: [https://tickertick.com](https://tickertick.com)
+- An OpenAI custom GPT: [TickerTick GPT](https://chat.openai.com/g/g-MUCY7WB5O-tickertick-gpt)
 
 
 ### Terms of Use
