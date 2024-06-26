@@ -60,8 +60,6 @@ News stories about Apple Inc. (its ticker is __aapl__) - https://api.tickertick.
 | q              | The query string       | Any query string in a query language<br>(explained below) | `(or tt:aapl tt:amzn)`  |
 | n              | How many news stories to fetch|   Any number between 1 and 1000 |      `42`      |
 | last    | A story id for pagination.<br>Fetch news stories older than the story with this id.| A 64-bit integer. Each returned news story has an id. |  `6844326865886118959`       |
-| hours_ago | Only return stories from these many number of hours ago or newer.| A 32-bit positive integer. | `2400` (100 days ago) <br> `24000` (1000 days ago)|
-
 
 #### The query language
 The query language is a [context-free language](https://en.wikipedia.org/wiki/Context-free_language) following the grammar below
@@ -116,7 +114,6 @@ term --> tt:any_stock_ticker | TT:any_stock_ticker | s:any_website_domain_name |
 #### Example API calls
 | URL parameters | Semanrics | API call URL | Rendered stories |
 |---------------|-----------|-------|---------------------------------|
-| `q=tt:amzn`<br>`hours_ago=14400`<br>`n=5` | Get 5 news stories about Amazon(`amzn`) from 600 days ago | https://api.tickertick.com/feed?q=tt:amzn&hours_ago=14400&n=5  | [`q=tt:amzn&hours_ago=14400&n=5`](https://api.tickertick.com/search.html?q=tt:amzn&hours_ago=14400&n=5) |
 | `q=tt:amzn`<br>`last=1866158884274957563`<br>`n=5` | Get 5 stories about Amazon(`amzn`) older than story with id `1866158884274957563`| https://api.tickertick.com/feed?q=tt:amzn&last=1866158884274957563&n=5  | [`q=tt:amzn&last=1866158884274957563&n=5`](https://api.tickertick.com/search.html?q=tt:amzn&last=1866158884274957563&n=5) |
 
 
