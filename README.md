@@ -248,16 +248,6 @@ Search for any tickers matching `aa` - https://api.tickertick.com/tickers?p=aa&n
 
 HC Zhu - [mail AT tickertick.com](mailto:mail@tickertick.com) - [@hzhu_](https://twitter.com/hzhu_)
 
-## Acknowledgments
-
-### SpaCy
-The backend of TickerTick API uses an English Transformer pipeline, [en_core_web_trf](https://spacy.io/models/en#en_core_web_trf), from [spaCy](https://github.com/explosion/spaCy) to extra named entities from text and accomplish other NLP tasks.
-
-### MediaWiki API
-The backend of TickerTick API uses [MediaWiki API](https://www.wikidata.org/w/api.php) to get entities related to a ticker, e.g. `Elon Musk` for `TSLA`, and `WhatsApp` for `FB`.
-
-### Favicon Grabber
-The backend of TickerTick API uses [Favicon Grabber](https://github.com/antongunov/favicongrabber.com) to fetch website favicons.
 
 ## API use cases
 
@@ -269,3 +259,14 @@ The backend of TickerTick API uses [Favicon Grabber](https://github.com/antongun
 
 ## Trading Saga
 [Trading Saga](https://tradingsaga.com/) is a quick and immersive trading game and uses TickerTick API to fetch stock news.
+
+## Acknowledgments
+
+### SpaCy
+The backend of TickerTick API uses an English Transformer pipeline, [en_core_web_trf](https://spacy.io/models/en#en_core_web_trf), from [spaCy](https://github.com/explosion/spaCy) to extra named entities from text and accomplish other NLP tasks.
+
+### MediaWiki API
+The backend of TickerTick API uses [MediaWiki API](https://www.wikidata.org/w/api.php) to get entities related to a ticker, e.g. `Elon Musk` for `TSLA`, and `WhatsApp` for `FB`.
+
+### Favicon Grabber
+The backend of TickerTick API uses [Favicon Grabber](https://github.com/antongunov/favicongrabber.com) to fetch website favicons.
