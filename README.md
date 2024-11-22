@@ -261,11 +261,11 @@ The backend of TickerTick API uses [Favicon Grabber](https://github.com/antongun
 
 ## API use cases
 
+### thestockmarketwatch.com
+[Stock Market Watch web site](htts://thestockmarketwatch.com) calls the API aboud 10,000 times per day to get the latest news stories for stocks.
+
 ### TickerTick.com
 [TickerTick.com](https://tickertick.com) provides the broadest stock news.
-
-## Big Tech News Twitter bot
-[Big Tech News](https://twitter.com/BigTech_News) uses TickerTick API to fetch news about big tech.
 
 ## Trading Saga
 [Trading Saga](https://tradingsaga.com/) is a quick and immersive trading game and uses TickerTick API to fetch stock news.
