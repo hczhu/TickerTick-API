@@ -252,7 +252,7 @@ HC Zhu - [mail AT tickertick.com](mailto:mail@tickertick.com) - [@hzhu_](https:/
 ## API use cases
 
 ### thestockmarketwatch.com
-[Stock Market Watch web site](htts://thestockmarketwatch.com) calls the API aboud 10,000 times per day to get the latest news stories for stocks.
+[Stock Market Watch web site](https://thestockmarketwatch.com) calls the API aboud 10,000 times per day to get the latest news stories for stocks.
 
 ### TickerTick.com
 [TickerTick.com](https://tickertick.com) provides the broadest stock news.
