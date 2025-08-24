@@ -58,7 +58,7 @@ News stories about Apple Inc. (its ticker is __aapl__) - https://api.tickertick.
 | Parameter  | Description                     | Options                            |  Example value    |
 |----------------|-------------------------------|--------------------------------------------------------|------------|
 | q              | The query string       | Any query string in a query language<br>(explained below) | `(or tt:aapl tt:amzn)`  |
-| n              | How many news stories to fetch|   Any number between 1 and 1,000 |      `42`      |
+| n              | How many news stories to fetch|   Any number between 1 and 200 |      `42`      |
 | last    | A story id for pagination.<br>Fetch news stories older than the story with this id.| A 64-bit integer. Each returned news story has an id. |  `6844326865886118959`       |
 
 #### The query language
