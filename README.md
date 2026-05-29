@@ -11,10 +11,10 @@ Take a look at the following apps built on top of TickerTick API.
 
 ### Terms of Use
 - The API is free of commercial/non-commercial use.
-- All endpoints have a rate limit of __10 requests per minute__ from the same IP address. The service enforces this. More precisely, an IP will be blocked for one minute if more than 10 requests are sent within any 1 minute time window.
+- All endpoints have a rate limit of __10 requests per minute__ from the same IP address. The service enforces this. More precisely, an IP will be blocked for 30 seconds if more than 5 requests are sent within any 30 second time window.
 - You are welcome to file an issue if you see any problem, like irrelevant stories.
 
-> :warning: An IP address has a rate limit of __10 requests per minute__. Email me if you need a higher request rate.
+> Email me if you need a higher request rate.
 
 ## Quickstart
 
