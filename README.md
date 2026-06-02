@@ -6,7 +6,7 @@ The TickerTick API provides the latest stock news stories through a powerful que
 
 > Goal: make your first successful API call in under a minute.
 
-Fetch the 200 latest news stories for ticker `aapl` (Apple Inc.):
+Fetch [the 200 latest news stories for ticker `aapl`](https://api.tickertick.com/feed?q=z:aapl&n=200) (Apple Inc.):
 
 ```
 https://api.tickertick.com/feed?q=z:aapl&n=200
