@@ -125,13 +125,13 @@ term --> tt:any_stock_ticker | TT:any_stock_ticker | s:any_website_domain_name |
 
 ### Example Queries
 
-| Example query | Semantics | API call URL | Rendered stories |
-|---|---|---|---|
-| `(and tt:aapl s:sec)` | SEC filings from Apple Inc. (ticker: aapl) | [https://api.tickertick.com/feed?q=(and tt:aapl s:sec)](https://api.tickertick.com/feed?q=(and%20tt:aapl%20s:sec)) | [`(and tt:aapl s:sec)`](https://api.tickertick.com/search.html?q=(and%20tt:aapl%20s:sec)) |
-| `(or tt:meta tt:aapl tt:amzn tt:nflx tt:goog)` | News stories about [FAANG stocks](https://www.investopedia.com/terms/f/faang-stocks.asp) | [https://api.tickertick.com/feed?q=(or tt:meta tt:aapl tt:amzn tt:nflx tt:goog)](https://api.tickertick.com/feed?q=(or%20tt:meta%20tt:aapl%20tt:amzn%20tt:nflx%20tt:goog)) | [`(or tt:meta tt:aapl tt:amzn tt:nflx tt:goog)`](https://api.tickertick.com/search.html?q=(or%20tt:meta%20tt:aapl%20tt:amzn%20tt:nflx%20tt:goog)) |
-| `(and (or tt:meta tt:goog) s:reddit)` | News stories about Meta (`meta`) and Google (`goog`) from `reddit.com` | [https://api.tickertick.com/feed?q=(and (or tt:meta tt:goog) s:reddit)](https://api.tickertick.com/feed?q=(and%20(or%20tt:meta%20tt:goog)%20s:reddit)) | [`(and (or tt:meta tt:goog) s:reddit)`](https://api.tickertick.com/search.html?q=(and%20(or%20tt:meta%20tt:goog)%20s:reddit)) |
-| `(diff (or tt:meta tt:goog) s:reddit)` | News stories about Meta (`meta`) and Google (`goog`) not from Reddit.com | [https://api.tickertick.com/feed?q=(diff (or tt:meta tt:goog) s:reddit)](https://api.tickertick.com/feed?q=(diff%20(or%20tt:meta%20tt:goog)%20s:reddit)) | [`(diff (or tt:meta tt:goog) s:reddit)`](https://api.tickertick.com/search.html?q=(diff%20(or%20tt:meta%20tt:goog)%20s:reddit)) |
-| `(diff E:elon_musk s:nytimes)` | Stories with `Elon Musk` in titles not from The New York Times | [https://api.tickertick.com/feed?q=(diff E:elon_musk s:nytimes)](https://api.tickertick.com/feed?q=(diff%20E:elon_musk%20s:nytimes)) | [`(diff E:elon_musk s:nytimes)`](https://api.tickertick.com/search.html?q=(diff%20E:elon_musk%20s:nytimes)) |
+| Example query | Semantics | API call URL |
+|---|---|---|
+| `(and tt:aapl s:sec)` | SEC filings from Apple Inc. (ticker: aapl) | [https://api.tickertick.com/feed?q=(and tt:aapl s:sec)](https://api.tickertick.com/feed?q=(and%20tt:aapl%20s:sec)) |
+| `(or tt:meta tt:aapl tt:amzn tt:nflx tt:goog)` | News stories about [FAANG stocks](https://www.investopedia.com/terms/f/faang-stocks.asp) | [https://api.tickertick.com/feed?q=(or tt:meta tt:aapl tt:amzn tt:nflx tt:goog)](https://api.tickertick.com/feed?q=(or%20tt:meta%20tt:aapl%20tt:amzn%20tt:nflx%20tt:goog)) |
+| `(and (or tt:meta tt:goog) s:reddit)` | News stories about Meta (`meta`) and Google (`goog`) from `reddit.com` | [https://api.tickertick.com/feed?q=(and (or tt:meta tt:goog) s:reddit)](https://api.tickertick.com/feed?q=(and%20(or%20tt:meta%20tt:goog)%20s:reddit)) |
+| `(diff (or tt:meta tt:goog) s:reddit)` | News stories about Meta (`meta`) and Google (`goog`) not from Reddit.com | [https://api.tickertick.com/feed?q=(diff (or tt:meta tt:goog) s:reddit)](https://api.tickertick.com/feed?q=(diff%20(or%20tt:meta%20tt:goog)%20s:reddit)) |
+| `(diff E:elon_musk s:nytimes)` | Stories with `Elon Musk` in titles not from The New York Times | [https://api.tickertick.com/feed?q=(diff E:elon_musk s:nytimes)](https://api.tickertick.com/feed?q=(diff%20E:elon_musk%20s:nytimes)) |
 
 ## API Reference
 
@@ -141,7 +141,7 @@ term --> tt:any_stock_ticker | TT:any_stock_ticker | s:any_website_domain_name |
 
 Returns a feed of the latest news stories relevant to the query, in reverse chronological order.
 
-Example: news stories about Apple Inc. (ticker `aapl`) — https://api.tickertick.com/feed?q=tt:aapl ([rendered feed](https://tickertick.com/ticker/aapl/feed)).
+Example: news stories about Apple Inc. (ticker `aapl`) — https://api.tickertick.com/feed?q=tt:aapl
 
 #### Parameters
 
@@ -153,9 +153,9 @@ Example: news stories about Apple Inc. (ticker `aapl`) — https://api.tickertic
 
 #### Example API call (pagination)
 
-| URL parameters | Semantics | API call URL | Rendered stories |
-|---|---|---|---|
-| `q=tt:amzn`<br>`last=1866158884274957563`<br>`n=5` | Get 5 stories about Amazon (`amzn`) older than story with id `1866158884274957563` | https://api.tickertick.com/feed?q=tt:amzn&last=1866158884274957563&n=5 | [`q=tt:amzn&last=1866158884274957563&n=5`](https://api.tickertick.com/search.html?q=tt:amzn&last=1866158884274957563&n=5) |
+| URL parameters | Semantics | API call URL |
+|---|---|---|
+| `q=tt:amzn`<br>`last=1866158884274957563`<br>`n=5` | Get 5 stories about Amazon (`amzn`) older than story with id `1866158884274957563` | https://api.tickertick.com/feed?q=tt:amzn&last=1866158884274957563&n=5 |
 
 #### Response
 
