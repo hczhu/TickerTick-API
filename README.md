@@ -1,6 +1,6 @@
 # TickerTick API
 
-The TickerTick API provides the latest stock news stories through a powerful query language. It covers all companies listed in US stock markets ([around 10,000 tickers](https://api.tickertick.com/tickers?n=100000)) and [hundreds of top startups](https://api.tickertick.com/tickers?n=100000&p=.), drawing news from around ten thousand source websites.
+The TickerTick API provides the latest stock news stories through a powerful query language. It covers all companies listed in US stock markets ([around 10,000 tickers](https://api.tickertick.com/tickers?n=10000)) and [hundreds of top startups](https://api.tickertick.com/tickers?n=100000&p=.), drawing news from around ten thousand source websites.
 
 ## Quick Start
 
