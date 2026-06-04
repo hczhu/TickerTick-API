@@ -43,6 +43,29 @@ feed = tt.get_feed(
 )  # SEC filings from Apple Inc.
 ```
 
+### Quick Start with Claude Code
+
+[Claude Code](https://claude.ai/code) is Anthropic's AI coding agent. Install the TickerTick skill to let Claude query stock news on your behalf using natural language:
+
+```bash
+claude mcp install https://github.com/hczhu/TickerTick-API/raw/master/SKILL.md
+```
+
+Or copy [`SKILL.md`](SKILL.md) from this repo into your Claude Code skills directory:
+
+```bash
+mkdir -p ~/.claude/skills/tickertick
+cp SKILL.md ~/.claude/skills/tickertick/SKILL.md
+```
+
+Once installed, invoke it with `/tickertick` in any Claude Code session. Claude will translate your request into the appropriate query and fetch results — for example:
+
+> *"Get the latest curated news for NVDA and AMD, excluding Reddit"*
+
+> *"Fetch the most important stories about Apple this week"*
+
+> *"Show me recent SEC filings for Microsoft"*
+
 ## Historical Data
 
 > Goal: get bulk/past news data instead of the live feed.
