@@ -23,26 +23,6 @@ The `q` (query) parameter is the heart of the API. The two simplest terms select
 
 That's enough to get started. Terms can be combined with `and` / `or` / `diff` operators and extended with several other term types — see the full [Query Language](#query-language) below.
 
-### Quick Start with PyTickerTick
-
-[PyTickerTick](https://pypi.org/project/pytickertick/) is a Python wrapper for the TickerTick API:
-
-```
-pip install pytickertick
-```
-
-```python
-import tickertick as tt
-import tickertick.query as query
-
-feed = tt.get_feed(
-    query = query.And(
-        query.BroadTicker('aapl'),
-        query.StoryType(query.StoryTypes.SEC)
-    )
-)  # SEC filings from Apple Inc.
-```
-
 ### Quick Start with Claude Code
 
 [Claude Code](https://claude.ai/code) is Anthropic's AI coding agent. Install the TickerTick skill to let Claude query stock news on your behalf using natural language:
@@ -65,6 +45,26 @@ Once installed, invoke it with `/tickertick` in any Claude Code session. Claude 
 > *"Fetch the most important stories about Apple this week"*
 
 > *"Show me recent SEC filings for Microsoft"*
+
+### Quick Start with PyTickerTick
+
+[PyTickerTick](https://pypi.org/project/pytickertick/) is a Python wrapper for the TickerTick API:
+
+```
+pip install pytickertick
+```
+
+```python
+import tickertick as tt
+import tickertick.query as query
+
+feed = tt.get_feed(
+    query = query.And(
+        query.BroadTicker('aapl'),
+        query.StoryType(query.StoryTypes.SEC)
+    )
+)  # SEC filings from Apple Inc.
+```
 
 ## Historical Data
 
