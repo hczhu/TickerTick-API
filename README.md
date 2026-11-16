@@ -98,7 +98,7 @@ Apps built on top of the TickerTick API:
 - **[Favicon Grabber](https://github.com/antongunov/favicongrabber.com)** — used to fetch website favicons.
 
 ### Contact
-HC Zhu - [mail AT tickertick.com](mailto:mail@tickertick.com) - [@hzhu_](https://twitter.com/hzhu_)
+Hongcheng Zhu - [support AT tickertick.com](mailto:support@tickertick.com) - [@hzhu_](https://twitter.com/hzhu_)
 
 ## Query Language
 
