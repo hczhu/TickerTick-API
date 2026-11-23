@@ -1,0 +1,57 @@
+name: skill integrity
+
+# skills/tickertick/SKILL.md is the canonical skill, read by both the Claude Code
+# and Codex plugins. SKILL.md at the repo root is a byte-identical copy that
+# exists only so the historical
+# https://raw.githubusercontent.com/hczhu/TickerTick-API/master/SKILL.md
+# keeps serving the real skill. A symlink cannot do this job: GitHub's raw
+# endpoint serves a symlink as plain text containing its target path, which
+# would return HTTP 200 with a useless 29-byte body.
+#
+# Two real files can drift, so fail the build the moment they do.
+
+on:
+  push:
+    branches: [master]
+  pull_request:
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Root SKILL.md matches the canonical skill
+        run: |
+          if ! cmp -s SKILL.md skills/tickertick/SKILL.md; then
+            echo "::error::SKILL.md and skills/tickertick/SKILL.md have diverged."
+            echo "skills/tickertick/SKILL.md is canonical. Sync the root copy with:"
+            echo "    cp skills/tickertick/SKILL.md SKILL.md"
+            echo
+            echo "Difference:"
+            diff -u skills/tickertick/SKILL.md SKILL.md || true
+            exit 1
+          fi
+          echo "In sync ($(wc -c < SKILL.md) bytes)."
+
+      - name: Neither copy is a symlink
+        run: |
+          for f in SKILL.md skills/tickertick/SKILL.md; do
+            if [ -L "$f" ]; then
+              echo "::error::$f is a symlink. Both copies must be real files:"
+              echo "  - GitHub raw serves a symlink as its target path in plain text."
+              echo "  - Codex drops symlinks when it copies a plugin into its cache,"
+              echo "    leaving an empty skill directory and no error."
+              exit 1
+            fi
+          done
+          echo "Both are real files."
+
+      - name: Plugin manifests are valid JSON
+        run: |
+          for f in .claude-plugin/marketplace.json .claude-plugin/plugin.json \
+                   .agents/plugins/marketplace.json .codex-plugin/plugin.json; do
+            python3 -c "import json,sys; json.load(open(sys.argv[1]))" "$f" \
+              || { echo "::error::$f is not valid JSON"; exit 1; }
+            echo "ok: $f"
+          done

@@ -36,9 +36,15 @@ These are the documented source-of-truth lists. The live service uses its own co
 
 ## Skill packaging
 
-`skills/tickertick/SKILL.md` is the **single source of truth** for the skill. There is deliberately no copy at the repo root.
+`skills/tickertick/SKILL.md` is the **canonical** skill file. `SKILL.md` at the repo root is a byte-identical **copy**, kept only so the historical `raw.githubusercontent.com/.../master/SKILL.md` keeps serving the real skill.
 
-The repo is simultaneously a marketplace for two agents, which read different manifests, so both install from the one file:
+Edit the canonical file, then sync the copy:
+
+```bash
+cp skills/tickertick/SKILL.md SKILL.md
+```
+
+The repo is simultaneously a marketplace for two agents, which read different manifests, so both install from the canonical path:
 
 | Agent | Marketplace manifest | Plugin manifest |
 |---|---|---|
@@ -47,9 +53,12 @@ The repo is simultaneously a marketplace for two agents, which read different ma
 
 Both set the plugin source to the repo root (`./`), so `skills/<name>/SKILL.md` is the layout both expect.
 
-**Do not add a symlink for a second copy.** Claude Code reads the plugin in place, so a symlink works there, but Codex *copies* the plugin tree into `~/.codex/plugins/cache/` and silently drops symlinks — the skill directory arrives empty and the skill disappears with no error. A real file at that one path is the only layout both agents handle.
+**Neither copy may be a symlink**, which is why there are two real files rather than one:
 
-The README's manual-install `curl` URLs point at `master/skills/tickertick/SKILL.md`; update them together if the file ever moves again.
+- GitHub's raw endpoint serves a symlink as plain text containing its target path. Verified: a committed symlink returned HTTP 200 with a 14-byte body of `../../SKILL.md`. A symlinked root copy would make the `curl` install *succeed* and write a useless stub.
+- Codex *copies* the plugin tree into `~/.codex/plugins/cache/` and silently drops symlinks, so the skill directory arrives empty and the skill vanishes with no error. Claude Code reads the plugin in place and is unaffected, which is what makes this failure easy to miss.
+
+`.github/workflows/skill-integrity.yml` enforces all of it on every push and PR: the two copies must match byte for byte, neither may be a symlink, and all four plugin manifests must be valid JSON.
 
 ## Related
 - Backend implementation (scrapers, indexer, NLP via spaCy `en_core_web_trf`, Wikidata entity expansion): `TickerTick-backend-private`.
