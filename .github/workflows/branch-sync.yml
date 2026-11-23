@@ -1,0 +1,55 @@
+name: branch sync
+
+# main is the default branch. master is kept as an exact mirror of it so that
+# external links written against master -- github.com/.../blob/master/... and
+# raw.githubusercontent.com/.../master/... -- keep resolving.
+#
+# Every push to main fast-forwards master to it. The push is never forced: if
+# master has commits that main lacks (someone pushed to it directly), the job
+# fails and leaves master untouched rather than discarding them. A daily run
+# repairs any drift a failed run left behind.
+#
+# Never commit to master directly.
+
+on:
+  push:
+    branches: [main, master]
+  schedule:
+    - cron: '17 6 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: branch-sync
+  cancel-in-progress: false
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+
+      - name: Fast-forward master to main
+        run: |
+          set -euo pipefail
+          git fetch --quiet origin main master
+          target=$(git rev-parse origin/main)
+          if ! git merge-base --is-ancestor origin/master origin/main; then
+            echo "::error::master has commits that are not on main, so it cannot be fast-forwarded."
+            echo "master is a mirror: commit to main instead. Commits only on master:"
+            git log --oneline origin/main..origin/master
+            exit 1
+          fi
+          # A plain push only ever fast-forwards; it is rejected if master has diverged.
+          git push origin "${target}:refs/heads/master"
+          git fetch --quiet origin master
+          if [ "$(git rev-parse origin/master)" != "${target}" ]; then
+            echo "::error::master is at $(git rev-parse --short origin/master), expected $(git rev-parse --short "${target}")."
+            exit 1
+          fi
+          echo "master == main == $(git rev-parse --short "${target}")"

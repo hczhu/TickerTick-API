@@ -38,7 +38,7 @@ claude plugin install tickertick@tickertick-api
 
 ```bash
 mkdir -p ~/.claude/skills/tickertick
-curl -fsSL https://raw.githubusercontent.com/hczhu/TickerTick-API/master/skills/tickertick/SKILL.md \
+curl -fsSL https://raw.githubusercontent.com/hczhu/TickerTick-API/main/skills/tickertick/SKILL.md \
   -o ~/.claude/skills/tickertick/SKILL.md
 ```
 
@@ -67,7 +67,7 @@ To install the skill file by hand instead, Codex reads skills from `~/.codex/ski
 
 ```bash
 mkdir -p ~/.codex/skills/tickertick
-curl -fsSL https://raw.githubusercontent.com/hczhu/TickerTick-API/master/skills/tickertick/SKILL.md \
+curl -fsSL https://raw.githubusercontent.com/hczhu/TickerTick-API/main/skills/tickertick/SKILL.md \
   -o ~/.codex/skills/tickertick/SKILL.md
 ```
 
@@ -162,15 +162,15 @@ term --> z:any_stock_ticker | tt:any_stock_ticker | TT:any_stock_ticker | s:any_
 
 | Term | Story type | Example query |
 |---|---|---|
-| T:curated | News stories from a curated list of [top financial/technology news sources](https://github.com/hczhu/TickerTick-API/blob/master/docs/top-news-sources.txt) | [T:curated](https://api.tickertick.com/feed?q=T:curated) |
+| T:curated | News stories from a curated list of [top financial/technology news sources](https://github.com/hczhu/TickerTick-API/blob/main/docs/top-news-sources.txt) | [T:curated](https://api.tickertick.com/feed?q=T:curated) |
 | T:earning | Company earnings news (e.g. presentations, transcripts) | [T:earning](https://api.tickertick.com/feed?q=T:earning) |
 | T:market | Stock market news | [T:market](https://api.tickertick.com/feed?q=T:market) |
 | T:sec | SEC filings | [T:sec](https://api.tickertick.com/feed?q=T:sec) |
 | T:sec_fin | Quarterly/annual financial reports | [T:sec_fin](https://api.tickertick.com/feed?q=T:sec_fin) |
 | T:trade | Trading news | [T:trade](https://api.tickertick.com/feed?q=T:trade) |
-| T:ugc | News stories from a curated list of [user-generated content platforms](https://github.com/hczhu/TickerTick-API/blob/master/docs/ugc-sources.txt), e.g. Reddit. | [T:ugc](https://api.tickertick.com/feed?q=T:ugc) |
-| T:analysis | Stock analysis articles from [a curated list of sources](https://github.com/hczhu/TickerTick-API/blob/master/docs/top-news-sources.txt) | [T:analysis](https://api.tickertick.com/feed?q=T:analysis) |
-| T:industry | Industry publications from [a curated list of sources](https://github.com/hczhu/TickerTick-API/blob/master/docs/industry-publications.txt) | [T:industry](https://api.tickertick.com/feed?q=T:industry) |
+| T:ugc | News stories from a curated list of [user-generated content platforms](https://github.com/hczhu/TickerTick-API/blob/main/docs/ugc-sources.txt), e.g. Reddit. | [T:ugc](https://api.tickertick.com/feed?q=T:ugc) |
+| T:analysis | Stock analysis articles from [a curated list of sources](https://github.com/hczhu/TickerTick-API/blob/main/docs/top-news-sources.txt) | [T:analysis](https://api.tickertick.com/feed?q=T:analysis) |
+| T:industry | Industry publications from [a curated list of sources](https://github.com/hczhu/TickerTick-API/blob/main/docs/industry-publications.txt) | [T:industry](https://api.tickertick.com/feed?q=T:industry) |
 | T:fin_news | News from well-known financial web sites | [T:fin_news](https://api.tickertick.com/feed?q=T:fin_news) |
 
 ### Example Queries
