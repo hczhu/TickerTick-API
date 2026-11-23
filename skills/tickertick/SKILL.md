@@ -55,7 +55,7 @@ query  →  term
 | `T:earning` | Earnings presentations and transcripts |
 | `T:sec` | SEC filings |
 | `T:sec_fin` | Quarterly/annual financial reports |
-| `T:fin_news` | Financial news (broader than curated) |
+| `T:fin_news` | News from well-known financial web sites |
 | `T:market` | Stock market news |
 | `T:trade` | Trading news |
 | `T:ugc` | User-generated content (Reddit, forums) |

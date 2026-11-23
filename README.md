@@ -171,7 +171,7 @@ term --> z:any_stock_ticker | tt:any_stock_ticker | TT:any_stock_ticker | s:any_
 | T:ugc | News stories from a curated list of [user-generated content platforms](https://github.com/hczhu/TickerTick-API/blob/master/docs/ugc-sources.txt), e.g. Reddit. | [T:ugc](https://api.tickertick.com/feed?q=T:ugc) |
 | T:analysis | Stock analysis articles from [a curated list of sources](https://github.com/hczhu/TickerTick-API/blob/master/docs/top-news-sources.txt) | [T:analysis](https://api.tickertick.com/feed?q=T:analysis) |
 | T:industry | Industry publications from [a curated list of sources](https://github.com/hczhu/TickerTick-API/blob/master/docs/industry-publications.txt) | [T:industry](https://api.tickertick.com/feed?q=T:industry) |
-| T:fin_news | Financial news, from a broader set of sources than `T:curated` | [T:fin_news](https://api.tickertick.com/feed?q=T:fin_news) |
+| T:fin_news | News from well-known financial web sites | [T:fin_news](https://api.tickertick.com/feed?q=T:fin_news) |
 
 ### Example Queries
 
