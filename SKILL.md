@@ -36,7 +36,6 @@ query  →  term
 | `tt:TICKER` | Broad: wider set of stories about the ticker |
 | `TT:TICKER` | Broadest: even more stories (use for important-news queries) |
 | `s:DOMAIN` | Source domain — no dots or slashes (e.g. `s:wsj`, `s:cnbc`, `s:reddit`) |
-| `E:entity` | Entity in title — lowercase, spaces→`_` (e.g. `E:elon_musk`, `E:nvidia`) |
 | `T:TYPE` | Story type — see table below |
 | `tag:_best_` | Editorially curated "best" stories (use with `TT:` for important news) |
 
@@ -89,11 +88,6 @@ Then find stories with `similar_stories` arrays of length >3 — those are the m
 **SEC filings for a ticker:**
 ```
 https://api.tickertick.com/feed?q=(and tt:aapl T:sec_fin)&n=10
-```
-
-**Entity search (e.g. person, product):**
-```
-https://api.tickertick.com/feed?q=E:jensen_huang&n=20
 ```
 
 **Source-specific:**

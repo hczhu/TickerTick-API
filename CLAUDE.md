@@ -15,7 +15,7 @@ Documentation-only repository: it is the **public API contract** for the TickerT
 
 A context-free grammar; the full grammar and operator/term tables are in `README.md`:
 - Operators: `(and ...)`, `(or ...)`, `(diff query1 query2)` (matches `query1` but not `query2`).
-- Terms: `z:TICKER` (narrow), `tt:TICKER` / `TT:TICKER` (broad), `s:DOMAIN` (no dots/slashes, e.g. `s:wsj`), `E:entity` (lowercase, spaces → `_`), `T:story_type`.
+- Terms: `z:TICKER` (narrow), `tt:TICKER` / `TT:TICKER` (broad), `s:DOMAIN` (no dots/slashes, e.g. `s:wsj`), `T:story_type`.
 - `T:` story types: curated, earning, market, sec, sec_fin, trade, ugc, analysis, industry.
 
 `docs/Retrieve-most-important-news.md` documents **advanced terms that are NOT in the README's tables** — notably `tag:_best_` and story types like `T:fin_news`. The README term/type tables are not exhaustive; treat `docs/` as authoritative for those.

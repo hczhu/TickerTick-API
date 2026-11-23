@@ -136,7 +136,7 @@ query --> term | (and query_list) | (or query_list) | (diff query query)
 
 query_list --> query query_list | term
 
-term --> tt:any_stock_ticker | TT:any_stock_ticker | s:any_website_domain_name | E:any_entity | T:story_type
+term --> tt:any_stock_ticker | TT:any_stock_ticker | s:any_website_domain_name | T:story_type
 ```
 
 ### Operators
@@ -154,7 +154,6 @@ term --> tt:any_stock_ticker | TT:any_stock_ticker | s:any_website_domain_name |
 | `z:stock_ticker` | News stories about `stock_ticker`. | `z:aapl` <br> `z:tsla` |
 | `tt:stock_ticker` | More broad news stories about `stock_ticker` (more than `z:stock_ticker`). | `tt:aapl` <br> `tt:tsla` |
 | `s:domain_name` | News stories from websites on domain `domain_name` (`domain_name` shouldn't contain '.' or '/'). | `s:wsj` <br> `s:cnbc` |
-| `E:any_entity` | News stories with titles semantically matching `any_entity` (replace whitespace with `_`; use lower case). | `E:shiba_inu` <br> `E:rent_the_runway` <br> `E:elon_musk` <br> `E:zoom` |
 | `T:story_type` | News stories of a specific type. See [Story Types](#story-types). | `T:curated` <br> `T:sec` |
 
 ### Story Types
@@ -179,7 +178,6 @@ term --> tt:any_stock_ticker | TT:any_stock_ticker | s:any_website_domain_name |
 | `(or tt:meta tt:aapl tt:amzn tt:nflx tt:goog)` | News stories about [FAANG stocks](https://www.investopedia.com/terms/f/faang-stocks.asp) | [https://api.tickertick.com/feed?q=(or tt:meta tt:aapl tt:amzn tt:nflx tt:goog)](https://api.tickertick.com/feed?q=(or%20tt:meta%20tt:aapl%20tt:amzn%20tt:nflx%20tt:goog)) |
 | `(and (or tt:meta tt:goog) s:reddit)` | News stories about Meta (`meta`) and Google (`goog`) from `reddit.com` | [https://api.tickertick.com/feed?q=(and (or tt:meta tt:goog) s:reddit)](https://api.tickertick.com/feed?q=(and%20(or%20tt:meta%20tt:goog)%20s:reddit)) |
 | `(diff (or tt:meta tt:goog) s:reddit)` | News stories about Meta (`meta`) and Google (`goog`) not from Reddit.com | [https://api.tickertick.com/feed?q=(diff (or tt:meta tt:goog) s:reddit)](https://api.tickertick.com/feed?q=(diff%20(or%20tt:meta%20tt:goog)%20s:reddit)) |
-| `(diff E:elon_musk s:nytimes)` | Stories with `Elon Musk` in titles not from The New York Times | [https://api.tickertick.com/feed?q=(diff E:elon_musk s:nytimes)](https://api.tickertick.com/feed?q=(diff%20E:elon_musk%20s:nytimes)) |
 
 ## API Reference
 
