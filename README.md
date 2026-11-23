@@ -136,7 +136,7 @@ query --> term | (and query_list) | (or query_list) | (diff query query)
 
 query_list --> query query_list | term
 
-term --> tt:any_stock_ticker | TT:any_stock_ticker | s:any_website_domain_name | T:story_type
+term --> z:any_stock_ticker | tt:any_stock_ticker | TT:any_stock_ticker | s:any_website_domain_name | T:story_type
 ```
 
 ### Operators
@@ -153,6 +153,7 @@ term --> tt:any_stock_ticker | TT:any_stock_ticker | s:any_website_domain_name |
 |---|---|---|
 | `z:stock_ticker` | News stories about `stock_ticker`. | `z:aapl` <br> `z:tsla` |
 | `tt:stock_ticker` | More broad news stories about `stock_ticker` (more than `z:stock_ticker`). | `tt:aapl` <br> `tt:tsla` |
+| `TT:stock_ticker` | The broadest set of news stories about `stock_ticker` (more than `tt:stock_ticker`). | `TT:aapl` <br> `TT:tsla` |
 | `s:domain_name` | News stories from websites on domain `domain_name` (`domain_name` shouldn't contain '.' or '/'). | `s:wsj` <br> `s:cnbc` |
 | `T:story_type` | News stories of a specific type. See [Story Types](#story-types). | `T:curated` <br> `T:sec` |
 
