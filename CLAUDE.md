@@ -34,6 +34,15 @@ These are the documented source-of-truth lists. The live service uses its own co
 
 `README.md` and the live product deep-link to specific paths and anchors on the **`master`** branch (e.g. `docs/top-news-sources.txt`, the `#story-types` heading). Renaming `docs/` files, changing section headings, or restructuring the README **breaks those external links**. Preserve file names and heading anchors when editing.
 
+## Skill packaging
+
+The skill ships two ways and `SKILL.md` must stay a **real file at the repo root**:
+
+- The manual install curls it from `raw.githubusercontent.com/.../master/SKILL.md` into `~/.claude/skills/tickertick/`. GitHub's raw endpoint serves a symlink as text containing its target path, so making the root copy a symlink would break that install.
+- The plugin route (`.claude-plugin/marketplace.json`, `source: "./"`) needs the skill at `skills/tickertick/SKILL.md`. That path is a **symlink to `../../SKILL.md`**, verified to load (`claude plugin details tickertick` reports `Skills (1) tickertick`).
+
+So: edit the root `SKILL.md` only, and never replace the symlink with a copy or invert the direction.
+
 ## Related
 - Backend implementation (scrapers, indexer, NLP via spaCy `en_core_web_trf`, Wikidata entity expansion): `TickerTick-backend-private`.
 - Historical bulk news-data dumps are published on this repo's GitHub **Releases** page.

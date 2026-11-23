@@ -1,0 +1,9 @@
+{
+  "name": "tickertick",
+  "version": "1.0.0",
+  "description": "Query the TickerTick API for stock news stories and ticker search using natural language.",
+  "author": {
+    "name": "HC Zhu"
+  },
+  "homepage": "https://github.com/hczhu/TickerTick-API"
+}
