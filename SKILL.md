@@ -1,5 +1,6 @@
 ---
 name: tickertick
+description: Query the TickerTick API for stock news stories and ticker search. Use when the user asks for news about a public company or ticker, SEC filings, earnings coverage, analyst or industry articles, or wants to resolve a company name to a ticker symbol.
 ---
 
 Query the TickerTick API for stock news stories and ticker search. Base URL: `https://api.tickertick.com`. Rate limit: 10 req/min per IP (>5 in any 30s window → 30s block).
