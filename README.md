@@ -25,20 +25,24 @@ That's enough to get started. Terms can be combined with `and` / `or` / `diff` o
 
 ### Quick Start with Claude Code
 
-[Claude Code](https://claude.ai/code) is Anthropic's AI coding agent. Install the TickerTick skill to let Claude query stock news on your behalf using natural language:
+[Claude Code](https://claude.ai/code) is Anthropic's AI coding agent. Install the TickerTick skill to let Claude query stock news on your behalf using natural language.
+
+A Claude Code skill is a directory under `~/.claude/skills/` containing a `SKILL.md`. To install this one without cloning the repo:
 
 ```bash
-claude mcp install https://github.com/hczhu/TickerTick-API/raw/master/SKILL.md
+mkdir -p ~/.claude/skills/tickertick
+curl -fsSL https://raw.githubusercontent.com/hczhu/TickerTick-API/master/SKILL.md \
+  -o ~/.claude/skills/tickertick/SKILL.md
 ```
 
-Or copy [`SKILL.md`](SKILL.md) from this repo into your Claude Code skills directory:
+Already cloned the repo? Copy [`SKILL.md`](SKILL.md) into place instead:
 
 ```bash
 mkdir -p ~/.claude/skills/tickertick
 cp SKILL.md ~/.claude/skills/tickertick/SKILL.md
 ```
 
-Once installed, invoke it with `/tickertick` in any Claude Code session. Claude will translate your request into the appropriate query and fetch results — for example:
+Once installed, start a new Claude Code session and invoke it with `/tickertick`. Claude will translate your request into the appropriate query and fetch results — for example:
 
 > *"Get the latest curated news for NVDA and AMD, excluding Reddit"*
 
