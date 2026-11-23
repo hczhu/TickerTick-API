@@ -36,12 +36,20 @@ These are the documented source-of-truth lists. The live service uses its own co
 
 ## Skill packaging
 
-The skill ships two ways and `SKILL.md` must stay a **real file at the repo root**:
+`skills/tickertick/SKILL.md` is the **single source of truth** for the skill. There is deliberately no copy at the repo root.
 
-- The manual install curls it from `raw.githubusercontent.com/.../master/SKILL.md` into `~/.claude/skills/tickertick/`. GitHub's raw endpoint serves a symlink as text containing its target path, so making the root copy a symlink would break that install.
-- The plugin route (`.claude-plugin/marketplace.json`, `source: "./"`) needs the skill at `skills/tickertick/SKILL.md`. That path is a **symlink to `../../SKILL.md`**, verified to load (`claude plugin details tickertick` reports `Skills (1) tickertick`).
+The repo is simultaneously a marketplace for two agents, which read different manifests, so both install from the one file:
 
-So: edit the root `SKILL.md` only, and never replace the symlink with a copy or invert the direction.
+| Agent | Marketplace manifest | Plugin manifest |
+|---|---|---|
+| Claude Code | `.claude-plugin/marketplace.json` | `.claude-plugin/plugin.json` |
+| Codex | `.agents/plugins/marketplace.json` | `.codex-plugin/plugin.json` (`"skills": "./skills/"`) |
+
+Both set the plugin source to the repo root (`./`), so `skills/<name>/SKILL.md` is the layout both expect.
+
+**Do not add a symlink for a second copy.** Claude Code reads the plugin in place, so a symlink works there, but Codex *copies* the plugin tree into `~/.codex/plugins/cache/` and silently drops symlinks — the skill directory arrives empty and the skill disappears with no error. A real file at that one path is the only layout both agents handle.
+
+The README's manual-install `curl` URLs point at `master/skills/tickertick/SKILL.md`; update them together if the file ever moves again.
 
 ## Related
 - Backend implementation (scrapers, indexer, NLP via spaCy `en_core_web_trf`, Wikidata entity expansion): `TickerTick-backend-private`.

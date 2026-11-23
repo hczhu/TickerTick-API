@@ -38,11 +38,11 @@ claude plugin install tickertick@tickertick-api
 
 ```bash
 mkdir -p ~/.claude/skills/tickertick
-curl -fsSL https://raw.githubusercontent.com/hczhu/TickerTick-API/master/SKILL.md \
+curl -fsSL https://raw.githubusercontent.com/hczhu/TickerTick-API/master/skills/tickertick/SKILL.md \
   -o ~/.claude/skills/tickertick/SKILL.md
 ```
 
-Already cloned the repo? `cp SKILL.md ~/.claude/skills/tickertick/SKILL.md` does the same.
+Already cloned the repo? `cp skills/tickertick/SKILL.md ~/.claude/skills/tickertick/SKILL.md` does the same.
 
 Once installed, start a new Claude Code session and invoke it with `/tickertick`. Claude will translate your request into the appropriate query and fetch results — for example:
 
@@ -51,6 +51,25 @@ Once installed, start a new Claude Code session and invoke it with `/tickertick`
 > *"Fetch the most important stories about Apple this week"*
 
 > *"Show me recent SEC filings for Microsoft"*
+
+### Quick Start with Codex
+
+[Codex](https://developers.openai.com/codex) is OpenAI's coding agent. This repo is also a Codex plugin marketplace, so the same skill installs there:
+
+```bash
+codex plugin marketplace add hczhu/TickerTick-API
+codex plugin add tickertick@tickertick-api
+```
+
+Refresh later with `codex plugin marketplace upgrade`, and remove it with `codex plugin remove tickertick`.
+
+To install the skill file by hand instead, Codex reads skills from `~/.codex/skills/<name>/SKILL.md`:
+
+```bash
+mkdir -p ~/.codex/skills/tickertick
+curl -fsSL https://raw.githubusercontent.com/hczhu/TickerTick-API/master/skills/tickertick/SKILL.md \
+  -o ~/.codex/skills/tickertick/SKILL.md
+```
 
 ### Quick Start with PyTickerTick
 

@@ -1,0 +1,11 @@
+{
+  "name": "tickertick-api",
+  "interface": { "displayName": "TickerTick API" },
+  "plugins": [
+    {
+      "name": "tickertick",
+      "source": { "source": "local", "path": "./" },
+      "category": "Productivity"
+    }
+  ]
+}
