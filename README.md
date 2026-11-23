@@ -136,7 +136,7 @@ query --> term | (and query_list) | (or query_list) | (diff query query)
 
 query_list --> query query_list | term
 
-term --> tt:any_stock_ticker | TT:any_stock_ticker | s:any_website_domain_name | T:story_type
+term --> z:any_stock_ticker | tt:any_stock_ticker | TT:any_stock_ticker | s:any_website_domain_name | T:story_type | tag:_best_
 ```
 
 ### Operators
@@ -153,8 +153,10 @@ term --> tt:any_stock_ticker | TT:any_stock_ticker | s:any_website_domain_name |
 |---|---|---|
 | `z:stock_ticker` | News stories about `stock_ticker`. | `z:aapl` <br> `z:tsla` |
 | `tt:stock_ticker` | More broad news stories about `stock_ticker` (more than `z:stock_ticker`). | `tt:aapl` <br> `tt:tsla` |
+| `TT:stock_ticker` | The broadest set of news stories about `stock_ticker` (more than `tt:stock_ticker`). | `TT:aapl` <br> `TT:tsla` |
 | `s:domain_name` | News stories from websites on domain `domain_name` (`domain_name` shouldn't contain '.' or '/'). | `s:wsj` <br> `s:cnbc` |
 | `T:story_type` | News stories of a specific type. See [Story Types](#story-types). | `T:curated` <br> `T:sec` |
+| `tag:_best_` | Editorially curated highlights. Matching stories carry `_best_` as an entry in their `tags` array. See [Retrieving the Most Important News](#retrieving-the-most-important-news). | `tag:_best_` |
 
 ### Story Types
 
@@ -169,6 +171,7 @@ term --> tt:any_stock_ticker | TT:any_stock_ticker | s:any_website_domain_name |
 | T:ugc | News stories from a curated list of [user-generated content platforms](https://github.com/hczhu/TickerTick-API/blob/master/docs/ugc-sources.txt), e.g. Reddit. | [T:ugc](https://api.tickertick.com/feed?q=T:ugc) |
 | T:analysis | Stock analysis articles from [a curated list of sources](https://github.com/hczhu/TickerTick-API/blob/master/docs/top-news-sources.txt) | [T:analysis](https://api.tickertick.com/feed?q=T:analysis) |
 | T:industry | Industry publications from [a curated list of sources](https://github.com/hczhu/TickerTick-API/blob/master/docs/industry-publications.txt) | [T:industry](https://api.tickertick.com/feed?q=T:industry) |
+| T:fin_news | Financial news, from a broader set of sources than `T:curated` | [T:fin_news](https://api.tickertick.com/feed?q=T:fin_news) |
 
 ### Example Queries
 
@@ -178,6 +181,41 @@ term --> tt:any_stock_ticker | TT:any_stock_ticker | s:any_website_domain_name |
 | `(or tt:meta tt:aapl tt:amzn tt:nflx tt:goog)` | News stories about [FAANG stocks](https://www.investopedia.com/terms/f/faang-stocks.asp) | [https://api.tickertick.com/feed?q=(or tt:meta tt:aapl tt:amzn tt:nflx tt:goog)](https://api.tickertick.com/feed?q=(or%20tt:meta%20tt:aapl%20tt:amzn%20tt:nflx%20tt:goog)) |
 | `(and (or tt:meta tt:goog) s:reddit)` | News stories about Meta (`meta`) and Google (`goog`) from `reddit.com` | [https://api.tickertick.com/feed?q=(and (or tt:meta tt:goog) s:reddit)](https://api.tickertick.com/feed?q=(and%20(or%20tt:meta%20tt:goog)%20s:reddit)) |
 | `(diff (or tt:meta tt:goog) s:reddit)` | News stories about Meta (`meta`) and Google (`goog`) not from Reddit.com | [https://api.tickertick.com/feed?q=(diff (or tt:meta tt:goog) s:reddit)](https://api.tickertick.com/feed?q=(diff%20(or%20tt:meta%20tt:goog)%20s:reddit)) |
+
+### Retrieving the Most Important News
+
+Story importance is derived from how widely a story is covered. The running example below retrieves the most important news for `$META` and `$AMZN`.
+
+1. Retrieve candidate stories with [this query](https://api.tickertick.com/feed?n=200&q=(diff%20(or%20(or%20(or%20TT:amzn%20TT:meta)%20(and%20tag:_best_%20(or%20tt:meta%20tt:amzn)%20(or%20T:fin_news%20T:analysis%20T:industry))))%20(or%20T:trade%20T:market%20T:ugc))), which uses the broad `TT:` terms and the `tag:_best_` term while excluding trading, market and user-generated noise:
+
+```
+(diff (or (or (or TT:meta TT:amzn)
+       (and tag:_best_ (or tt:meta tt:amzn) (or T:fin_news T:analysis T:industry))))
+ (or T:trade T:market T:ugc))
+```
+
+2. Look for stories in the response that have a `similar_stories` array. A story together with its similar stories forms a **cluster**, and the story carrying the array is the cluster's **primary story**.
+3. If a cluster holds more than 3 stories (tunable), its primary story is considered most important.
+4. If any story in the cluster has `_best_` in its `tags`, that story is considered most important.
+
+The story below satisfies both criteria:
+
+```json
+{
+  "title": "Amazon plans to start delivering packages by drone in Texas later this year",
+  "tags": [
+    "amzn",
+    "_best_"
+  ],
+  "similar_stories": [
+    "7861538917579425004",
+    "1801298483307348605",
+    "-6273779958355143798",
+    "1915490391207104498",
+    "7429249118825970200"
+  ]
+}
+```
 
 ## API Reference
 

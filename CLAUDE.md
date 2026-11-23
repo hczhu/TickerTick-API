@@ -15,10 +15,10 @@ Documentation-only repository: it is the **public API contract** for the TickerT
 
 A context-free grammar; the full grammar and operator/term tables are in `README.md`:
 - Operators: `(and ...)`, `(or ...)`, `(diff query1 query2)` (matches `query1` but not `query2`).
-- Terms: `z:TICKER` (narrow), `tt:TICKER` / `TT:TICKER` (broad), `s:DOMAIN` (no dots/slashes, e.g. `s:wsj`), `T:story_type`.
-- `T:` story types: curated, earning, market, sec, sec_fin, trade, ugc, analysis, industry.
+- Terms: `z:TICKER` (narrow), `tt:TICKER` / `TT:TICKER` (broad), `s:DOMAIN` (no dots/slashes, e.g. `s:wsj`), `T:story_type`, `tag:_best_` (editorial highlights, delivered as a `_best_` entry in a story's `tags`).
+- `T:` story types: curated, earning, market, sec, sec_fin, trade, ugc, analysis, industry, fin_news.
 
-`docs/Retrieve-most-important-news.md` documents **advanced terms that are NOT in the README's tables** — notably `tag:_best_` and story types like `T:fin_news`. The README term/type tables are not exhaustive; treat `docs/` as authoritative for those.
+**`README.md` is the single source of truth for the whole contract**, and its term and story-type tables are exhaustive. There is no second place to check: a term, story type, parameter or response field that is not in the README is not part of the documented API. `docs/` holds only the curated source lists below — no prose documentation. Anything new belongs in the README, and `skills/tickertick/SKILL.md` follows it.
 
 ## docs/ source lists ↔ story types
 
@@ -32,7 +32,9 @@ These are the documented source-of-truth lists. The live service uses its own co
 
 ## External-link fragility
 
-`README.md` and the live product deep-link to specific paths and anchors on the **`master`** branch (e.g. `docs/top-news-sources.txt`, the `#story-types` heading). Renaming `docs/` files, changing section headings, or restructuring the README **breaks those external links**. Preserve file names and heading anchors when editing.
+`README.md` and the live product deep-link to specific paths and anchors on the **`master`** branch (e.g. `docs/top-news-sources.txt`, the `#story-types` heading). Renaming `docs/*.txt` files, changing section headings, or restructuring the README **breaks those external links**. Preserve file names and heading anchors when editing.
+
+`docs/Retrieve-most-important-news.md` was removed once the README absorbed it; its content now lives under the `#retrieving-the-most-important-news` heading.
 
 ## Skill packaging
 

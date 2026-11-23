@@ -11,13 +11,19 @@ Query the TickerTick API for stock news stories and ticker search. Base URL: `ht
 ```
 GET https://api.tickertick.com/feed?q=<query>&n=<1-200>&last=<story_id>
 ```
-Returns stories in reverse-chronological order. `last` paginates using a story's `id`. Story `time` is epoch **milliseconds**.
+Returns `{"stories": [...], "last_id": "..."}` — stories in reverse-chronological order. Story `time` is epoch **milliseconds**.
+
+To paginate, pass the response's `last_id` (or any story's `id`) back as `last=`. Story ids are **quoted strings** and may be negative, e.g. `"-8901745850278641194"`; they are 64-bit values, so never parse them as JavaScript numbers.
 
 ### `/tickers` — ticker search
 ```
 GET https://api.tickertick.com/tickers?p=<prefix>&n=<count>
 ```
-Search by company name or ticker prefix. Use this to resolve a company name to a ticker before querying `/feed`.
+Search by company name or ticker prefix. Use this to resolve a company name to a ticker before querying `/feed`. Returns:
+
+```json
+{"tickers": [{"ticker": "amzn", "company_name": "Amazon.com, Inc."}]}
+```
 
 ## Query Language
 
@@ -83,7 +89,7 @@ https://api.tickertick.com/feed?q=(diff tt:nvda T:ugc)&n=20
           (and tag:_best_ (or tt:TICKER1 tt:TICKER2) (or T:fin_news T:analysis T:industry))))
   (or T:trade T:market T:ugc))
 ```
-Then find stories with `similar_stories` arrays of length >3 — those are the most-covered stories. Stories tagged `_best_` are editorially curated highlights.
+A story plus its `similar_stories` forms a cluster, and the story carrying them is the cluster's primary story. A cluster with more than 3 stories makes its primary story important. If any story in the cluster has `_best_` in its `tags`, that story wins — `_best_` is delivered as an entry in `tags` alongside the tickers, not as a separate field.
 
 **SEC filings for a ticker:**
 ```
@@ -99,14 +105,18 @@ https://api.tickertick.com/feed?q=(and tt:tsla s:reuters)&n=20
 
 | Field | Description |
 |---|---|
-| `id` | Unique story ID; use as `last=` for pagination |
+| `id` | Unique story id, a string; use as `last=` for pagination |
 | `title` | Story headline |
 | `url` | Story URL |
-| `site` | Source domain |
-| `time` | Publish time in epoch milliseconds |
-| `tags` | Ticker tags (present when `tt:` term used) |
-| `similar_stories` | IDs of similar stories in the same response (clustering signal) |
+| `site` | Source website |
+| `time` | Publish time in epoch milliseconds (as `Date.now()`) |
+| `favicon_url` | Favicon of the source website |
+| `tags` | Tickers the story is about, present when a `tt:` term is in the query. May also contain `_best_` |
+| `tickers` | Duplicate of `tags`, same contents including `_best_`. Undocumented in the README; prefer `tags` |
+| `similar_stories` | Ids of similar stories in the same response (clustering signal). Optional |
 | `description` | Optional summary |
+
+The enclosing object also carries `last_id`, the id of the oldest story returned — pass it as `last=` to fetch the next page.
 
 ## Ticker Search Example
 
