@@ -1,0 +1,18 @@
+{
+  "$schema": "https://anthropic.com/claude-code/marketplace.schema.json",
+  "name": "tickertick-api",
+  "description": "The TickerTick API skill for Claude Code.",
+  "owner": {
+    "name": "HC Zhu"
+  },
+  "plugins": [
+    {
+      "name": "tickertick",
+      "description": "Query the TickerTick API for stock news stories and ticker search using natural language.",
+      "author": { "name": "HC Zhu" },
+      "category": "productivity",
+      "source": "./",
+      "homepage": "https://github.com/hczhu/TickerTick-API"
+    }
+  ]
+}
