@@ -3,7 +3,7 @@ name: skill integrity
 # skills/tickertick/SKILL.md is the canonical skill, read by both the Claude Code
 # and Codex plugins. SKILL.md at the repo root is a byte-identical copy that
 # exists only so the historical
-# https://raw.githubusercontent.com/hczhu/TickerTick-API/master/SKILL.md
+# https://raw.githubusercontent.com/hczhu/TickerTick-API/main/SKILL.md
 # keeps serving the real skill. A symlink cannot do this job: GitHub's raw
 # endpoint serves a symlink as plain text containing its target path, which
 # would return HTTP 200 with a useless 29-byte body.
@@ -12,7 +12,7 @@ name: skill integrity
 
 on:
   push:
-    branches: [master]
+    branches: [main]
   pull_request:
 
 jobs:

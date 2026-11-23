@@ -32,13 +32,19 @@ These are the documented source-of-truth lists. The live service uses its own co
 
 ## External-link fragility
 
-`README.md` and the live product deep-link to specific paths and anchors on the **`master`** branch (e.g. `docs/top-news-sources.txt`, the `#story-types` heading). Renaming `docs/*.txt` files, changing section headings, or restructuring the README **breaks those external links**. Preserve file names and heading anchors when editing.
+`README.md` and the live product deep-link to specific paths and anchors on the **`main`** branch (e.g. `docs/top-news-sources.txt`, the `#story-types` heading). Renaming `docs/*.txt` files, changing section headings, or restructuring the README **breaks those external links**. Preserve file names and heading anchors when editing.
 
 `docs/Retrieve-most-important-news.md` was removed once the README absorbed it; its content now lives under the `#retrieving-the-most-important-news` heading.
 
+## Branches
+
+`main` is the default branch and the only one to commit to. `master` is a **read-only mirror** of it, kept so that links written against `master` before the switch (`github.com/.../blob/master/...`, `raw.githubusercontent.com/.../master/...`, and installs that cloned it) keep resolving.
+
+`.github/workflows/branch-sync.yml` fast-forwards `master` to `main` on every push to `main`, plus a daily run that repairs any drift. It never force-pushes: if `master` ever gains a commit that `main` lacks, the job fails and leaves `master` untouched, so the fix is to bring that commit onto `main` — not to overwrite `master`. Open PRs against `main`.
+
 ## Skill packaging
 
-`skills/tickertick/SKILL.md` is the **canonical** skill file. `SKILL.md` at the repo root is a byte-identical **copy**, kept only so the historical `raw.githubusercontent.com/.../master/SKILL.md` keeps serving the real skill.
+`skills/tickertick/SKILL.md` is the **canonical** skill file. `SKILL.md` at the repo root is a byte-identical **copy**, kept only so the historical root URL `raw.githubusercontent.com/.../main/SKILL.md` keeps serving the real skill.
 
 Edit the canonical file, then sync the copy:
 
